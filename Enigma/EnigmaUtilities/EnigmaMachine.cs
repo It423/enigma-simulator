@@ -1,10 +1,6 @@
 ﻿// EnigmaMachine.cs
 // <copyright file="EnigmaMachine.cs"> This code is protected under the MIT License. </copyright>
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EnigmaUtilities.Components;
 using EnigmaUtilities.Components.EventArgs;
 
@@ -22,7 +18,7 @@ namespace EnigmaUtilities
         /// <param name="rotor1"> The first rotor to be used by the machine. </param>
         /// <param name="rotor2"> The second rotor to be used by the machine. </param>
         /// <param name="rotor3"> The third rotor to be used by the machine. </param>
-        /// <param name="plugboard"> The plugboard to be used by the machine. </param>
+        /// <param name="plugboard"> The plug board to be used by the machine. </param>
         public EnigmaMachine(Reflector reflector, Rotor rotor1, Rotor rotor2, Rotor rotor3, Plugboard plugboard)
         {
             // Set up components
@@ -48,7 +44,7 @@ namespace EnigmaUtilities
         public Rotor[] Rotors { get; set; }
 
         /// <summary>
-        /// Gets or sets the plugboard.
+        /// Gets or sets the plug board.
         /// </summary>
         public Plugboard Plugboard { get; set; }
 
@@ -64,7 +60,7 @@ namespace EnigmaUtilities
         }
 
         /// <summary>
-        /// Encrypts a letter with the engima machine.
+        /// Encrypts a letter with the enigma machine.
         /// </summary>
         /// <param name="c"> The letter to encrypt. </param>
         /// <returns> The encrypted letter. </returns>
