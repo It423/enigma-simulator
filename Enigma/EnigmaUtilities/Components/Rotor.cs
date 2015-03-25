@@ -3,8 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EnigmaUtilities.Components.EventArgs;
 
 namespace EnigmaUtilities.Components
