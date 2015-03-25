@@ -20,7 +20,7 @@ namespace EnigmaUtilities
         {
             get
             {
-                return "abcdefghijkmnopqrstuvwxyz";
+                return "abcdefghijklmnopqrstuvwxyz";
             }
         }
 
