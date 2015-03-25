@@ -141,7 +141,7 @@ namespace EnigmaUtilities.Components
         }
 
         /// <summary>
-        /// Fires the rotor notche activated event.
+        /// Fires the rotor notch activated event.
         /// </summary>
         /// <param name="origin"> The origin on the event. </param>
         /// <param name="e"> The event arguments. </param>

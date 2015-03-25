@@ -12,8 +12,6 @@ namespace EnigmaUtilities.Components
         /// <summary>
         /// Initializes a new instance of the <see cref="Reflector" /> class.
         /// </summary>
-        /// <param name="ringSetting"> The ring setting of the rotor. </param>
-        /// <param name="rotorSetting"> The position of the rotor. </param>
         /// <param name="wiring"> The wirings of the alphabet. </param>
         public Reflector(string wiring)
         {
