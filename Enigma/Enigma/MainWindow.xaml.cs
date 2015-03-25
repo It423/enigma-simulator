@@ -1,4 +1,6 @@
-﻿using System;
+﻿// MainWindow.xaml.cs
+// <copyright file="MainWindow.xaml.cs"> This code is protected under the MIT License. </copyright>
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,12 @@ namespace Enigma
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow" /> class.
+        /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
