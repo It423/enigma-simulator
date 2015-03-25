@@ -25,12 +25,16 @@ namespace EnigmaUtilities
         /// <param name="plugboard"> The plugboard to be used by the machine. </param>
         public EnigmaMachine(Reflector reflector, Rotor rotor1, Rotor rotor2, Rotor rotor3, Plugboard plugboard)
         {
+            // Set up components
             this.Reflector = reflector;
             this.Plugboard = plugboard;
             this.Rotors = new Rotor[3];
             this.Rotors[0] = rotor1;
             this.Rotors[1] = rotor2;
             this.Rotors[2] = rotor3;
+
+            // Apply to ring event handlers
+            this.ApplyToRotorEvents();
         }
 
         /// <summary>
@@ -47,6 +51,17 @@ namespace EnigmaUtilities
         /// Gets or sets the plugboard.
         /// </summary>
         public Plugboard Plugboard { get; set; }
+
+        /// <summary>
+        /// Applies to the rotor events.
+        /// </summary>
+        public void ApplyToRotorEvents()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                this.Rotors[i].RotorNotchActivated += this.HandleNotchActivate;
+            }
+        }
 
         /// <summary>
         /// Encrypts a letter with the engima machine.
