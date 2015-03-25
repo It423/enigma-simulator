@@ -37,7 +37,7 @@ namespace EnigmaUtilities.Components
             this.TunringNotches = new int[turnNotches.Length];
             for (int i = 0; i < turnNotches.Length; i++)
             {
-                this.TunringNotches[i] = turnNotches[i];
+                this.TunringNotches[i] = turnNotches[i].ToInt();
             }
 
             this.RotorNumber = rotornumber;
@@ -128,7 +128,7 @@ namespace EnigmaUtilities.Components
             // Run the notch activated event if needed
             foreach (int turningNotch in this.TunringNotches)
             {
-                if (turningNotch == this.RotorNumber)
+                if (turningNotch == this.RotorSetting)
                 {
                     this.OnRotorNotchActivate(this, new RotorNotchActivatedEventArgs(this.RotorNumber));
                 }
