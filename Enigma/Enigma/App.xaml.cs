@@ -1,5 +1,6 @@
 ﻿// App.xaml.cs
-// <copyright file="App.xaml.cs"> This code is protected under the MIT License. </copyright>using System;
+// <copyright file="App.xaml.cs"> This code is protected under the MIT License. </copyright>
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
