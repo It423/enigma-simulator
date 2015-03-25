@@ -119,8 +119,20 @@ namespace EnigmaUtilities.Components
         public void Rotate()
         {
             // Turn anti-clockwise and keep in alphabet range
-            this.RotorSetting--;
+            this.RotorSetting++;
             this.RotorSetting = Resources.Mod(this.RotorSetting, 26);
+
+            // Run the rotor event handler
+            this.OnRotorTurn(this, new RotorTurnedEventArgs(this.RotorSetting.ToChar(), this.RotorNumber));
+
+            // Run the notch activated event if needed
+            foreach (int turningNotch in this.TunringNotches)
+            {
+                if (turningNotch == this.RotorNumber)
+                {
+                    this.OnRotorNotchActivate(this, new RotorNotchActivatedEventArgs(this.RotorNumber));
+                }
+            }
         }
 
         /// <summary>
@@ -143,7 +155,7 @@ namespace EnigmaUtilities.Components
         /// </summary>
         /// <param name="origin"> The origin on the event. </param>
         /// <param name="e"> The event arguments. </param>
-        protected void OnRotorTurn(object origin, RotorNotchActivatedEventArgs e)
+        protected void OnRotorNotchActivate(object origin, RotorNotchActivatedEventArgs e)
         {
             EventHandler<RotorNotchActivatedEventArgs> handler = this.RotorNotchActivated;
 
