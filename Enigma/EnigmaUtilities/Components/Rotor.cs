@@ -18,7 +18,7 @@ namespace EnigmaUtilities.Components
         /// <param name="ringSetting"> The ring setting of the rotor. </param>
         /// <param name="rotorSetting"> The position of the rotor. </param>
         /// <param name="wiring"> The wirings of the alphabet. </param>
-        /// <param name="turnNotches"> The letters that will turn the next wheel. </param>
+        /// <param name="turnNotches"> The letters that will turn the next rotor. </param>
         /// <param name="rotornumber"> The identification number for the rotor. </param>
         public Rotor(int ringSetting, int rotorSetting, string wiring, string turnNotches, int rotornumber)
         {
@@ -75,7 +75,7 @@ namespace EnigmaUtilities.Components
         }
 
         /// <summary>
-        /// Gets or sets the notches that will turn the next rotor.
+        /// Gets or sets the letter that will turn the next rotor.
         /// </summary>
         public int[] TunringNotches { get; protected set; }
 
