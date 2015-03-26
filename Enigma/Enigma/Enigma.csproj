@@ -61,6 +61,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\ReflectorData.cs" />
+    <Compile Include="Data\RotorData.cs" />
     <Compile Include="MachineSetup.xaml.cs">
       <DependentUpon>MachineSetup.xaml</DependentUpon>
       <SubType>Code</SubType>
