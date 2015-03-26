@@ -1,11 +1,5 @@
 ﻿// RotorData.cs
 // <copyright file="RotorData.cs"> This code is protected under the MIT License. </copyright>
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Enigma.Data
 {
     /// <summary>
@@ -14,7 +8,7 @@ namespace Enigma.Data
     public class RotorData
     {
         /// <summary>
-        /// Initailizes a new instance of the <see cref="RotorData" /> class.
+        /// Initializes a new instance of the <see cref="RotorData" /> class.
         /// </summary>
         /// <param name="name"> The name of the rotor. </param>
         /// <param name="wiring"> The wiring of the rotor. </param>
