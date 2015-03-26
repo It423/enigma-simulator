@@ -15,19 +15,14 @@ namespace EnigmaUtilities
         /// Initializes a new instance of the <see cref="EnigmaMachine" /> class.
         /// </summary>
         /// <param name="reflector"> The reflector to be used by the machine. </param>
-        /// <param name="rotor1"> The first rotor to be used by the machine. </param>
-        /// <param name="rotor2"> The second rotor to be used by the machine. </param>
-        /// <param name="rotor3"> The third rotor to be used by the machine. </param>
+        /// <param name="rotors"> The rotors to be used by the machine. </param>
         /// <param name="plugboard"> The plug board to be used by the machine. </param>
-        public EnigmaMachine(Reflector reflector, Rotor rotor1, Rotor rotor2, Rotor rotor3, Plugboard plugboard)
+        public EnigmaMachine(Reflector reflector, Rotor[] rotors, Plugboard plugboard)
         {
             // Set up components
             this.Reflector = reflector;
             this.Plugboard = plugboard;
-            this.Rotors = new Rotor[3];
-            this.Rotors[0] = rotor1;
-            this.Rotors[1] = rotor2;
-            this.Rotors[2] = rotor3;
+            this.Rotors = rotors;
 
             // Apply to ring event handlers
             this.ApplyToRotorEvents();
@@ -36,24 +31,24 @@ namespace EnigmaUtilities
         /// <summary>
         /// Gets or sets the reflector.
         /// </summary>
-        public Reflector Reflector { get; set; }
+        public Reflector Reflector { get; protected set; }
 
         /// <summary>
         /// Gets or sets the rotors.
         /// </summary>
-        public Rotor[] Rotors { get; set; }
+        public Rotor[] Rotors { get; protected set; }
 
         /// <summary>
         /// Gets or sets the plug board.
         /// </summary>
-        public Plugboard Plugboard { get; set; }
+        public Plugboard Plugboard { get; protected set; }
 
         /// <summary>
         /// Applies to the rotor events.
         /// </summary>
         public void ApplyToRotorEvents()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < this.Rotors.Length; i++)
             {
                 this.Rotors[i].RotorNotchActivated += this.HandleNotchActivate;
             }
@@ -72,15 +67,15 @@ namespace EnigmaUtilities
             // Only encrypt if its a letter in the alphabet
             if (Resources.Alphabet.Contains(c))
             {
-                // Rotate dail
-                this.Rotors[2].Rotate();
+                // Rotate last rotor
+                this.Rotors[this.Rotors.Length - 1].Rotate();
 
                 // Send the signal through the plugboard
                 char newChar = this.Plugboard.Encrypt(c);
                 
                 // Run the signal down the rotors, through the reflector then back down the rotors
                 int nextRotorAddition = -1;
-                for (int nextRotor = 2; nextRotor < 3; nextRotor += nextRotorAddition)
+                for (int nextRotor = this.Rotors.Length - 1; nextRotor < this.Rotors.Length; nextRotor += nextRotorAddition)
                 {
                     // Check if the rotor has reached the end of the run
                     if (nextRotor == -1)
@@ -94,7 +89,7 @@ namespace EnigmaUtilities
                     // Make the rotor run the correct way
                     this.Rotors[nextRotor].RightToLeft = nextRotorAddition < 0 ? true : false;
 
-                    // Run the rotor
+                    // Run the signal through the rotor
                     newChar = this.Rotors[nextRotor].Encrypt(newChar);
                 }
 
