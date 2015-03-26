@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enigma", "Enigma\Enigma.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnigmaUtilities", "EnigmaUtilities\EnigmaUtilities.csproj", "{EC2D12B1-E067-4252-B366-4D271F460F3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6BE3641C-B1B7-4F6F-BB94-7DBAE3B0197F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{EC2D12B1-E067-4252-B366-4D271F460F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC2D12B1-E067-4252-B366-4D271F460F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC2D12B1-E067-4252-B366-4D271F460F3D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6BE3641C-B1B7-4F6F-BB94-7DBAE3B0197F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BE3641C-B1B7-4F6F-BB94-7DBAE3B0197F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BE3641C-B1B7-4F6F-BB94-7DBAE3B0197F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BE3641C-B1B7-4F6F-BB94-7DBAE3B0197F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
