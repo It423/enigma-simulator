@@ -1,5 +1,5 @@
-﻿// MainWindow.xaml.cs
-// <copyright file="MainWindow.xaml.cs"> This code is protected under the MIT License. </copyright>
+﻿// MachineSetup.xaml.cs
+// <copyright file="MachineSetup.xaml.cs"> This code is protected under the MIT License. </copyright>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +18,14 @@ using System.Windows.Shapes;
 namespace Enigma
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MachineSetup.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MachineSetup : Window
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MainWindow" /> class.
+        /// Initializes a new instance of the <see cref="MachineSetup" /> class.
         /// </summary>
-        public MainWindow()
+        public MachineSetup()
         {
             this.InitializeComponent();
         }
