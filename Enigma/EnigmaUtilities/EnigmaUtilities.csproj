@@ -47,7 +47,6 @@
     <Compile Include="Components\Reflector.cs" />
     <Compile Include="Components\Rotor.cs" />
     <Compile Include="Components\EventArgs\RotorNotchActivatedEventArgs.cs" />
-    <Compile Include="Components\EventArgs\RotorTurnedEventArgs.cs" />
     <Compile Include="EnigmaMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.cs" />
