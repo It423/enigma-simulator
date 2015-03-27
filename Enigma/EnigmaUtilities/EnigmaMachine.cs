@@ -106,11 +106,22 @@ namespace EnigmaUtilities
         }
 
         /// <summary>
+        /// Resets the rotors to their starting positions.
+        /// </summary>
+        public void Reset()
+        {
+            for (int i = 0; i < this.Rotors.Length; i++)
+            {
+                this.Rotors[i].Reset();
+            }
+        }
+
+        /// <summary>
         /// Handles the turning notch activating on the rotors.
         /// </summary>
-        /// <param name="origin"> The origin of the event. </param>
+        /// <param name="sender"> The origin of the event. </param>
         /// <param name="eventArgs"> The event arguments. </param>
-        public void HandleNotchActivate(object origin, RotorNotchActivatedEventArgs eventArgs)
+        protected void HandleNotchActivate(object sender, RotorNotchActivatedEventArgs eventArgs)
         {
             // Advance the next rotor
             if (eventArgs.RotorNumber > 0)

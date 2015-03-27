@@ -20,11 +20,12 @@ namespace EnigmaUtilities.Components
         /// <param name="wiring"> The wirings of the alphabet. </param>
         /// <param name="turnNotches"> The letters that will turn the next rotor. </param>
         /// <param name="rotornumber"> The identification number for the rotor. </param>
-        public Rotor(int ringSetting, int rotorSetting, string wiring, string turnNotches, int rotornumber)
+        public Rotor(int ringSetting, int rotorSetting, string wiring, string turnNotches, int rotorNumber)
         {
             // Set the ring and rotor settings
             this.RingSetting = ringSetting;
             this.RotorSetting = rotorSetting;
+            this.OriginalRotorSetting = rotorSetting;
 
             // Create the dictionary of encrypted letters
             this.EncryptionKeys = new Dictionary<char, char>();
@@ -40,13 +41,8 @@ namespace EnigmaUtilities.Components
                 this.TunringNotches[i] = turnNotches[i].ToInt();
             }
 
-            this.RotorNumber = rotornumber;
+            this.RotorNumber = rotorNumber;
         }
-
-        /// <summary>
-        /// Fires when the rotor turns.
-        /// </summary>
-        public event EventHandler<RotorTurnedEventArgs> RotorTurned;
 
         /// <summary>
         /// Fires when the turning notch it activated.
@@ -90,6 +86,11 @@ namespace EnigmaUtilities.Components
         public int RotorNumber { get; set; }
 
         /// <summary>
+        /// Gets or sets the original rotor setting.
+        /// </summary>
+        protected int OriginalRotorSetting { get; set; }
+
+        /// <summary>
         /// Encrypts a letter with the current rotor settings.
         /// </summary>
         /// <param name="c"> The character to encrypt. </param>
@@ -122,9 +123,6 @@ namespace EnigmaUtilities.Components
             this.RotorSetting++;
             this.RotorSetting = Resources.Mod(this.RotorSetting, 26);
 
-            // Run the rotor event handler
-            this.OnRotorTurn(this, new RotorTurnedEventArgs(this.RotorSetting.ToChar(), this.RotorNumber));
-
             // Run the notch activated event if needed
             foreach (int turningNotch in this.TunringNotches)
             {
@@ -136,18 +134,11 @@ namespace EnigmaUtilities.Components
         }
 
         /// <summary>
-        /// Fires the rotor turned event.
+        /// Resets the rotor to its starting position.
         /// </summary>
-        /// <param name="origin"> The origin on the event. </param>
-        /// <param name="e"> The event arguments. </param>
-        protected void OnRotorTurn(object origin, RotorTurnedEventArgs e)
+        public void Reset()
         {
-            EventHandler<RotorTurnedEventArgs> handler = this.RotorTurned;
-
-            if (handler != null)
-            {
-                handler(origin, e);
-            }
+            this.RotorSetting = this.OriginalRotorSetting;
         }
 
         /// <summary>
