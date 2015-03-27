@@ -32,7 +32,7 @@ namespace Enigma
             this.DisplayCorrectRotors();
 
             // Apply to on key down event handlers
-            this.Input.TextChanged += Input_TextChanged;
+            this.Input.TextChanged += this.Input_TextChanged;
         }
 
         /// <summary>
@@ -80,7 +80,6 @@ namespace Enigma
         /// <summary>
         /// Displays the correct rotor positions.
         /// </summary>
-        /// <param name="em"> The enigma machine to set the rotor positions to. </param>
         protected void DisplayCorrectRotors()
         {
             for (int i = 0; i < this.EnigmaMachine.Rotors.Length; i++)
