@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EnigmaWriter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MachineSetup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,6 +67,9 @@
     </Compile>
     <Compile Include="Data\ReflectorData.cs" />
     <Compile Include="Data\RotorData.cs" />
+    <Compile Include="EnigmaWriter.xaml.cs">
+      <DependentUpon>EnigmaWriter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MachineSetup.xaml.cs">
       <DependentUpon>MachineSetup.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -94,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnigmaUtilities\EnigmaUtilities.csproj">
+      <Project>{ec2d12b1-e067-4252-b366-4d271f460f3d}</Project>
+      <Name>EnigmaUtilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

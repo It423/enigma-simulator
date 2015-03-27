@@ -1,8 +1,29 @@
 ﻿<Window x:Class="Enigma.EnigmaWriter"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Enigma - Writer" Height="300" Width="300">
-    <Grid>
-        
+        Title="Enigma - Writer" MinHeight="300" MinWidth="400" Height="400" Width="600">
+    <Grid x:Name="DisplayGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.ColumnSpan="4" Content="Input:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="109"/>
+        <TextBox Grid.Row="0" Grid.ColumnSpan="4" x:Name="Input" Margin="10,36,10,0" TextWrapping="Wrap" Text=""/>
+
+        <Label x:Name="RotorDsp0" Grid.Row="1" Grid.Column="0" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New"/>
+        <Label x:Name="RotorDsp1" Grid.Row="1" Grid.Column="1" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New"/>
+        <Label x:Name="RotorDsp2" Grid.Row="1" Grid.Column="2" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New"/>
+        <Label x:Name="RotorDsp3" Grid.Row="1" Grid.Column="3" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New"/>
+
+        <Label Grid.Row="2" Grid.ColumnSpan="4" Content="Enigma output:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="109"/>
+        <TextBox Grid.Row="2" Grid.ColumnSpan="4" x:Name="Output" Margin="10,26,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
     </Grid>
 </Window>
