@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.ColumnSpan="4" Content="Input:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="109"/>
-        <TextBox Grid.Row="0" Grid.ColumnSpan="4" x:Name="Input" Margin="10,36,10,0" TextWrapping="Wrap" Text=""/>
+        <TextBox x:Name="Input" Grid.Row="0" Grid.ColumnSpan="4" Margin="10,36,10,0" TextWrapping="Wrap" Text=""/>
 
         <Label x:Name="RotorDsp0" Grid.Row="1" Grid.Column="0" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New"/>
         <Label x:Name="RotorDsp1" Grid.Row="1" Grid.Column="1" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New"/>
@@ -24,6 +24,6 @@
         <Label x:Name="RotorDsp3" Grid.Row="1" Grid.Column="3" Content="A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Courier New"/>
 
         <Label Grid.Row="2" Grid.ColumnSpan="4" Content="Enigma output:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="109"/>
-        <TextBox Grid.Row="2" Grid.ColumnSpan="4" x:Name="Output" Margin="10,26,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
+        <TextBox x:Name="Output" Grid.Row="2" Grid.ColumnSpan="4" Margin="10,26,10,10" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
     </Grid>
 </Window>
