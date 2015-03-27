@@ -1,8 +1,11 @@
 ﻿<Window x:Class="Enigma.MachineSetup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Enigma - Setup" Height="350" Width="525">
+        Title="Enigma - Setup" Height="350" Width="600">
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Center" Margin="212,10,201,0" TextWrapping="Wrap" Text="Enigma Setup" VerticalAlignment="Top" IsEnabled="False" FontSize="16" FontWeight="Bold"/>
+
+        <Button x:Name="ClearSettings" Content="Clear Settings" Margin="0,0,10,36" HorizontalAlignment="Right" Width="88" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="Begin" Content="Being Encryption" HorizontalAlignment="Center" Margin="211,0,196,10" VerticalAlignment="Bottom" Width="110"/>
     </Grid>
 </Window>
