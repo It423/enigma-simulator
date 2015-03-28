@@ -1,10 +1,57 @@
 ﻿<Window x:Class="Enigma.MachineSetup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Enigma - Setup" Height="350" Width="600">
+        Title="Enigma - Setup" Width="500" Height="250" MinWidth="200" MinHeight="240">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="212,10,201,0" TextWrapping="Wrap" Text="Enigma Setup" VerticalAlignment="Top" IsEnabled="False" FontSize="16" FontWeight="Bold"/>
+        <Label HorizontalAlignment="Center" Margin="0" Content="Enigma Setup" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
 
-        <Button x:Name="Begin" Content="Being Encryption" HorizontalAlignment="Center" Margin="211,0,196,10" VerticalAlignment="Bottom" Width="110" Click="Begin_Click"/>
+        
+        <Grid x:Name="RotorSettingsGrid" Margin="10,35,10,0" VerticalAlignment="Top" Height="130">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.ColumnSpan="4" Content="Ring Settings" FontWeight="Bold"/>
+            <Label Grid.Column="4" Grid.ColumnSpan="4" Content="Rotor Positions" FontWeight="Bold"/>
+            <Button x:Name="RingSettingInc0" Grid.Column="0" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RingSettingDsp0" Grid.Column="0" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RingSettingDec0" Grid.Column="0" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingInc1" Grid.Column="1" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RingSettingDsp1" Grid.Column="1" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RingSettingDec1" Grid.Column="1" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingInc2" Grid.Column="2" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RingSettingDsp2" Grid.Column="2" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RingSettingDec2" Grid.Column="2" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingInc3" Grid.Column="3" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RingSettingDsp3" Grid.Column="3" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RingSettingDec3" Grid.Column="3" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc0" Grid.Column="4" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RotorPositionDsp0" Grid.Column="4" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RotorPositionDec0" Grid.Column="4" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc1" Grid.Column="5" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RotorPositionDsp1" Grid.Column="5" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RotorPositionDec1" Grid.Column="5" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc2" Grid.Column="6" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RotorPositionDsp2" Grid.Column="6" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RotorPositionDec2" Grid.Column="6" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc3" Grid.Column="7" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Label x:Name="RotorPositionDsp3" Grid.Column="7" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Button x:Name="RotorPositionDec3" Grid.Column="7" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="SwitchRotorView" Grid.ColumnSpan="8" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="  View Ring Settings  "/>
+        </Grid>
+        <Button x:Name="Begin" Content="  Being Encryption  " HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="Begin_Click"/>
     </Grid>
 </Window>
