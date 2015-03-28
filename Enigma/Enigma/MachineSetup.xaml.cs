@@ -34,7 +34,7 @@ namespace Enigma
         }
 
         /// <summary>
-        /// Beigns encryption using the current enigma settings.
+        /// Begins encryption using the current enigma settings.
         /// </summary>
         /// <param name="sender"> The origin of the event. </param>
         /// <param name="e"> The event arguments. </param>
