@@ -5,7 +5,6 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="212,10,201,0" TextWrapping="Wrap" Text="Enigma Setup" VerticalAlignment="Top" IsEnabled="False" FontSize="16" FontWeight="Bold"/>
 
-        <Button x:Name="ClearSettings" Content="Clear Settings" Margin="0,0,10,36" HorizontalAlignment="Right" Width="88" Height="20" VerticalAlignment="Bottom"/>
-        <Button x:Name="Begin" Content="Being Encryption" HorizontalAlignment="Center" Margin="211,0,196,10" VerticalAlignment="Bottom" Width="110"/>
+        <Button x:Name="Begin" Content="Being Encryption" HorizontalAlignment="Center" Margin="211,0,196,10" VerticalAlignment="Bottom" Width="110" Click="Begin_Click"/>
     </Grid>
 </Window>

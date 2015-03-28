@@ -32,5 +32,23 @@ namespace Enigma
         {
             this.InitializeComponent();
         }
+
+        /// <summary>
+        /// Beigns encryption using the current enigma settings.
+        /// </summary>
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event arguments. </param>
+        private void Begin_Click(object sender, RoutedEventArgs e)
+        {
+            // Use settings to create enigma machine instance
+            ////EnigmaMachine em = new EnigmaMachine(...);
+
+            // Create encryption window
+            ////EnigmaWriter ew = new EnigmaWriter(em);
+
+            // Show encryptor, hide settings
+            ////ew.Show();
+            this.Close();
+        }
     }
 }
