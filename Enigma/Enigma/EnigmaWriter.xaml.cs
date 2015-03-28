@@ -99,7 +99,7 @@ namespace Enigma
         /// Opens the machine setup window on closing of the current window.
         /// </summary>
         /// <param name="sender"> The origin of the event. </param>
-        /// <param name="e"> The event agruments. </param>
+        /// <param name="e"> The event arguments. </param>
         private void Window_Closed(object sender, System.EventArgs e)
         {
             // Open set up window on closure
