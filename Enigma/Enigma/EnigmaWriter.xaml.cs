@@ -33,6 +33,9 @@ namespace Enigma
 
             // Apply to on key down event handlers
             this.Input.TextChanged += this.Input_TextChanged;
+
+            // Apply to window closing event handler
+            this.Closed += this.Window_Closed;
         }
 
         /// <summary>
@@ -41,11 +44,26 @@ namespace Enigma
         public EnigmaMachine EnigmaMachine { get; set; }
 
         /// <summary>
+        /// Displays the correct rotor positions.
+        /// </summary>
+        protected void DisplayCorrectRotors()
+        {
+            for (int i = 0; i < this.EnigmaMachine.Rotors.Length; i++)
+            {
+                // Get the corrosponding label to the rotor
+                Label rotorDisplay = (Label)this.FindName(string.Format("RotorDsp{0}", i.ToString()));
+
+                // Change the content to suit the rotor
+                rotorDisplay.Content = this.EnigmaMachine.Rotors[i].RotorSetting.ToChar();
+            }
+        }
+
+        /// <summary>
         /// Updates the output box then the text is changed in the input box.
         /// </summary>
         /// <param name="sender"> The origin of the event. </param>
         /// <param name="e"> The event arguments. </param>
-        protected void Input_TextChanged(object sender, TextChangedEventArgs e)
+        private void Input_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Get the content of the input box
             string input = this.Input.Text;
@@ -78,18 +96,15 @@ namespace Enigma
         }
 
         /// <summary>
-        /// Displays the correct rotor positions.
+        /// Opens the machine setup window on closing of the current window.
         /// </summary>
-        protected void DisplayCorrectRotors()
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event agruments. </param>
+        private void Window_Closed(object sender, System.EventArgs e)
         {
-            for (int i = 0; i < this.EnigmaMachine.Rotors.Length; i++)
-            {
-                // Get the corrosponding label to the rotor
-                Label rotorDisplay = (Label)this.FindName(string.Format("RotorDsp{0}", i.ToString()));
-
-                // Change the content to suit the rotor
-                rotorDisplay.Content = this.EnigmaMachine.Rotors[i].RotorSetting.ToChar();
-            }
+            // Open set up window on closure
+            MachineSetup ms = new MachineSetup();
+            ms.Show();
         }
     }
 }
