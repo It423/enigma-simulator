@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.2*"/>
@@ -50,7 +50,7 @@
             <Button x:Name="RotorPositionInc3" Grid.Column="7" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
             <Label x:Name="RotorPositionDsp3" Grid.Column="7" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
             <Button x:Name="RotorPositionDec3" Grid.Column="7" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="SwitchRotorView" Grid.ColumnSpan="8" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="  View Ring Settings  "/>
+            <Button x:Name="SwitchRotorView" Grid.ColumnSpan="8" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="  View Ring Settings  " Click="SwitchRotorView_Click"/>
         </Grid>
         <Button x:Name="Begin" Content="  Being Encryption  " HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="Begin_Click"/>
     </Grid>
