@@ -92,6 +92,7 @@ namespace Enigma
 
                 // Tell the program it has switched
                 this.RingSettingsActive = !this.RingSettingsActive;
+                this.SwitchRotorView.Content = "  View Ring Settings  ";
             }
             else
             {
@@ -110,6 +111,7 @@ namespace Enigma
 
                 // Tell the program it has switched
                 this.RingSettingsActive = !this.RingSettingsActive;
+                this.SwitchRotorView.Content = "  View Rotor Positions  ";
             }
         }
 
