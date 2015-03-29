@@ -5,7 +5,7 @@
     <Grid>
         <Label HorizontalAlignment="Center" Margin="0" Content="Enigma Setup" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
 
-        
+
         <Grid x:Name="RotorSettingsGrid" Margin="10,35,10,0" VerticalAlignment="Top" Height="130">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
@@ -26,30 +26,30 @@
             </Grid.RowDefinitions>
             <Label Grid.ColumnSpan="4" Content="Ring Settings" FontWeight="Bold"/>
             <Label Grid.Column="4" Grid.ColumnSpan="4" Content="Rotor Positions" FontWeight="Bold"/>
-            <Button x:Name="RingSettingInc0" Grid.Column="0" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingDec0" Grid.Column="0" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RingSettingDsp0" Grid.Column="0" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RingSettingDec0" Grid.Column="0" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="RingSettingInc1" Grid.Column="1" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingInc0" Grid.Column="0" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
+            <Button x:Name="RingSettingDec1" Grid.Column="1" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RingSettingDsp1" Grid.Column="1" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RingSettingDec1" Grid.Column="1" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="RingSettingInc2" Grid.Column="2" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingInc1" Grid.Column="1" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
+            <Button x:Name="RingSettingDec2" Grid.Column="2" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RingSettingDsp2" Grid.Column="2" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RingSettingDec2" Grid.Column="2" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="RingSettingInc3" Grid.Column="3" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingInc2" Grid.Column="2" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
+            <Button x:Name="RingSettingDec3" Grid.Column="3" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RingSettingDsp3" Grid.Column="3" Grid.Row="2" Content="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RingSettingDec3" Grid.Column="3" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="RotorPositionInc0" Grid.Column="4" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RingSettingInc3" Grid.Column="3" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
+            <Button x:Name="RotorPositionDec0" Grid.Column="4" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RotorPositionDsp0" Grid.Column="4" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RotorPositionDec0" Grid.Column="4" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="RotorPositionInc1" Grid.Column="5" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc0" Grid.Column="4" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
+            <Button x:Name="RotorPositionDec1" Grid.Column="5" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RotorPositionDsp1" Grid.Column="5" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RotorPositionDec1" Grid.Column="5" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="RotorPositionInc2" Grid.Column="6" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc1" Grid.Column="5" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
+            <Button x:Name="RotorPositionDec2" Grid.Column="6" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RotorPositionDsp2" Grid.Column="6" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RotorPositionDec2" Grid.Column="6" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
-            <Button x:Name="RotorPositionInc3" Grid.Column="7" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc2" Grid.Column="6" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
+            <Button x:Name="RotorPositionDec3" Grid.Column="7" Grid.Row="1" Content="-" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Label x:Name="RotorPositionDsp3" Grid.Column="7" Grid.Row="2" Content="A" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Courier New"/>
-            <Button x:Name="RotorPositionDec3" Grid.Column="7" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20"/>
+            <Button x:Name="RotorPositionInc3" Grid.Column="7" Grid.Row="3" Content="+" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" Click="RotorSettingsChanger_Click"/>
             <Button x:Name="SwitchRotorView" Grid.ColumnSpan="8" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="  View Ring Settings  " Click="SwitchRotorView_Click"/>
             <CheckBox x:Name="FourRotorCheckBox" Content="Four Rotors" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Checked="FourRotorCheckBox_Changed" Unchecked="FourRotorCheckBox_Changed"/>
         </Grid>
