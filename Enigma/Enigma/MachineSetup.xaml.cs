@@ -72,15 +72,15 @@ namespace Enigma
         /// <param name="e"> The event arguments. </param>
         private void SwitchRotorView_Click(object sender, RoutedEventArgs e)
         {
-            // Get how many rotors to display
-            int rotorsToSwitch = this.FourRotors ? 4 : 3;
+            // Get which rotor is the first rotro
+            int minRotor = this.FourRotors ? 0 : 1;
 
             if (this.RingSettingsActive)
             {
                 // Switch from ring settings to rotor positions
                 for (int i = 0; i < 8; i++)
                 {
-                    if (i < 4 || i >= 4 + rotorsToSwitch)
+                    if (i < 4 + minRotor)
                     {
                         this.RotorSettingsGrid.ColumnDefinitions[i].Width = new GridLength(0);
                     }
@@ -99,7 +99,7 @@ namespace Enigma
                 // Switch from rotor positions to ring settings
                 for (int i = 0; i < 8; i++)
                 {
-                    if (i < rotorsToSwitch)
+                    if (i < 4 && i >= minRotor)
                     {
                         this.RotorSettingsGrid.ColumnDefinitions[i].Width = new GridLength(1, GridUnitType.Star);
                     }
@@ -128,13 +128,13 @@ namespace Enigma
             // Display correct rotors
             if (this.FourRotors)
             {
-                int currentFourthRotorIndex = this.RingSettingsActive ? 3 : 7; // Get the currently displayed fourth rotor
+                int currentFourthRotorIndex = this.RingSettingsActive ? 0 : 4; // Get the currently displayed fourth rotor
                 this.RotorSettingsGrid.ColumnDefinitions[currentFourthRotorIndex].Width = new GridLength(1, GridUnitType.Star);
             }
             else
             {
-                this.RotorSettingsGrid.ColumnDefinitions[3].Width = new GridLength(0);
-                this.RotorSettingsGrid.ColumnDefinitions[7].Width = new GridLength(0);
+                this.RotorSettingsGrid.ColumnDefinitions[0].Width = new GridLength(0);
+                this.RotorSettingsGrid.ColumnDefinitions[4].Width = new GridLength(0);
             }
         }
     }
