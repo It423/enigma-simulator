@@ -4,8 +4,6 @@
         Title="Enigma - Setup" Width="500" Height="250" MinWidth="340" MinHeight="240">
     <Grid>
         <Label HorizontalAlignment="Center" Margin="0" Content="Enigma Setup" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-
-
         <Grid x:Name="RotorSettingsGrid" Margin="10,35,10,0" VerticalAlignment="Top" Height="130">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
@@ -53,6 +51,7 @@
             <Button x:Name="SwitchRotorView" Grid.ColumnSpan="8" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="  View Ring Settings  " Click="SwitchRotorView_Click"/>
             <CheckBox x:Name="FourRotorCheckBox" Content="Four Rotors" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Checked="FourRotorCheckBox_Changed" Unchecked="FourRotorCheckBox_Changed"/>
         </Grid>
+        <Button x:Name="ClearSettings" Content="  Clear Settings  " HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="ClearSettings_Click"/>
         <Button x:Name="Begin" Content="  Being Encryption  " HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="Begin_Click"/>
     </Grid>
 </Window>

@@ -19,10 +19,8 @@ namespace Enigma
             this.InitializeComponent();
 
             // Tell the program the default data
-            this.FourRotors = false;
             this.RingSettingsActive = false;
-            this.RingSettings = new int[4] { 0, 0, 0, 0 };
-            this.RotorPositions = new int[4] { 0, 0, 0, 0 };
+            this.ResetData();
         }
 
         /// <summary>
@@ -46,12 +44,31 @@ namespace Enigma
         public bool FourRotors { get; set; }
 
         /// <summary>
-        /// Displays the correct rotor settings.
+        /// Resets the settings on the machine.
+        /// </summary>
+        protected void ResetData()
+        {
+            // Reset data
+            this.FourRotors = false;
+            this.RingSettings = new int[4] { 0, 0, 0, 0 };
+            this.RotorPositions = new int[4] { 0, 0, 0, 0 };
+            
+            // Display correct content
+            this.DisplayCorrectSettings();
+        }
+
+        /// <summary>
+        /// Displays the correct rotor settings and keep them in range of 0-25.
         /// </summary>
         protected void DisplayCorrectSettings()
         {
+            // Display correct rotor data
             for (int i = 0; i < 4; i++)
             {
+                // Keep settings in range of 26
+                this.RingSettings[i] = EnigmaUtilities.Resources.Mod(this.RingSettings[i], 26);
+                this.RotorPositions[i] = EnigmaUtilities.Resources.Mod(this.RotorPositions[i], 26);
+
                 // Display correct rotor positon
                 Label rotorPosition = (Label)this.FindName(string.Format("RotorPositionDsp{0}", i.ToString()));
                 rotorPosition.Content = this.RotorPositions[i].ToChar().ToString().ToUpper();
@@ -60,6 +77,16 @@ namespace Enigma
                 Label ringSetting = (Label)this.FindName(string.Format("RingSettingDsp{0}", i.ToString()));
                 ringSetting.Content = this.RingSettings[i] + 1;
             }
+
+            // Hide forth rotors if they arn't meant to be displayed
+            if (!this.FourRotors)
+            {
+                this.RotorSettingsGrid.ColumnDefinitions[0].Width = new GridLength(0);
+                this.RotorSettingsGrid.ColumnDefinitions[4].Width = new GridLength(0);
+            }
+
+            // Display correct checkbox for four rotors
+            this.FourRotorCheckBox.IsChecked = this.FourRotors;
         }
 
         /// <summary>
@@ -147,7 +174,7 @@ namespace Enigma
         private void FourRotorCheckBox_Changed(object sender, RoutedEventArgs e)
         {
             // Change the value indicating if there are four rotors
-            this.FourRotors = !this.FourRotors;
+            this.FourRotors = (bool)this.FourRotorCheckBox.IsChecked;
 
             // Display correct rotors
             if (this.FourRotors)
@@ -176,30 +203,40 @@ namespace Enigma
                 {
                     // If the button is a decrease rotor position, decrease the rotor position
                     this.RotorPositions[i]--;
+                    break;
                 }
                 else if (sender.Equals(this.FindName(string.Format("RotorPositionInc{0}", i.ToString()))))
                 {
                     // If the button is a increase rotor position, increase the rotor position
                     this.RotorPositions[i]++;
+                    break;
                 }
                 else if (sender.Equals(this.FindName(string.Format("RingSettingDec{0}", i.ToString()))))
                 {
                     // If the button is a decrease ring setting, decrease the rotor position
                     this.RingSettings[i]--;
+                    break;
                 }
                 else if (sender.Equals(this.FindName(string.Format("RingSettingInc{0}", i.ToString()))))
                 {
                     // If the button is a increase ring setting, increase the rotor position
                     this.RingSettings[i]++;
+                    break;
                 }
-
-                // Keep all settings in range of 26
-                this.RingSettings[i] = EnigmaUtilities.Resources.Mod(this.RingSettings[i], 26);
-                this.RotorPositions[i] = EnigmaUtilities.Resources.Mod(this.RotorPositions[i], 26);
             }
 
             // Display the correct settings
             this.DisplayCorrectSettings();
+        }
+
+        /// <summary>
+        /// Handles the click of the clear settings button.
+        /// </summary>
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event arguments. </param>
+        private void ClearSettings_Click(object sender, RoutedEventArgs e)
+        {
+            this.ResetData();
         }
     }
 }
