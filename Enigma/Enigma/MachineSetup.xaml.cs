@@ -82,7 +82,7 @@ namespace Enigma
                 {
                     if (i < 4 || i >= 4 + rotorsToSwitch)
                     {
-                        this.RotorSettingsGrid.ColumnDefinitions[i].Width = new GridLength(0, GridUnitType.Star);
+                        this.RotorSettingsGrid.ColumnDefinitions[i].Width = new GridLength(0);
                     }
                     else
                     {
@@ -104,12 +104,35 @@ namespace Enigma
                     }
                     else
                     {
-                        this.RotorSettingsGrid.ColumnDefinitions[i].Width = new GridLength(0, GridUnitType.Star);
+                        this.RotorSettingsGrid.ColumnDefinitions[i].Width = new GridLength(0);
                     }
                 }
 
                 // Tell the program it has switched
                 this.RingSettingsActive = !this.RingSettingsActive;
+            }
+        }
+
+        /// <summary>
+        /// Changes values in the program when the four rotor check box has changed.
+        /// </summary>
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event arguments. </param>
+        private void FourRotorCheckBox_Changed(object sender, RoutedEventArgs e)
+        {
+            // Change the value indicating if there are four rotors
+            this.FourRotors = !this.FourRotors;
+
+            // Display correct rotors
+            if (this.FourRotors)
+            {
+                int currentFourthRotorIndex = this.RingSettingsActive ? 3 : 7; // Get the currently displayed fourth rotor
+                this.RotorSettingsGrid.ColumnDefinitions[currentFourthRotorIndex].Width = new GridLength(1, GridUnitType.Star);
+            }
+            else
+            {
+                this.RotorSettingsGrid.ColumnDefinitions[3].Width = new GridLength(0);
+                this.RotorSettingsGrid.ColumnDefinitions[7].Width = new GridLength(0);
             }
         }
     }
