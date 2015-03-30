@@ -134,8 +134,12 @@ namespace Enigma
             ////    rotors[i - firstRotor] = new Rotor(this.RingSettings[i], this.RotorPositions[i], ...);
             ////}
 
+            // Create an instance of the reflector and plugboard
+            ////Reflector reflector = new Reflector(...);
+            ////Plugboard plugboard = new Plugboard(this.PlugboardSettings);
+
             // Use settings to create enigma machine instance
-            ////EnigmaMachine em = new EnigmaMachine(...);
+            ////EnigmaMachine em = new EnigmaMachine(reflector, rotors, plugboard);
 
             // Create encryption window
             ////EnigmaWriter ew = new EnigmaWriter(em);
