@@ -1,5 +1,6 @@
 ﻿// MachineSetup.xaml.cs
 // <copyright file="MachineSetup.xaml.cs"> This code is protected under the MIT License. </copyright>
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using EnigmaUtilities;
@@ -34,6 +35,11 @@ namespace Enigma
         public int[] RotorPositions { get; set; }
 
         /// <summary>
+        /// Gets or sets the plug board settings.
+        /// </summary>
+        public string[] PlugboardSettings { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether the ring settings are currently being viewed.
         /// </summary>
         public bool RingSettingsActive { get; set; }
@@ -52,6 +58,7 @@ namespace Enigma
             this.FourRotors = false;
             this.RingSettings = new int[4] { 0, 0, 0, 0 };
             this.RotorPositions = new int[4] { 0, 0, 0, 0 };
+            this.PlugboardSettings = new string[10] { string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty };
             
             // Display correct content
             this.DisplayCorrectSettings();
@@ -78,15 +85,37 @@ namespace Enigma
                 ringSetting.Content = this.RingSettings[i] + 1;
             }
 
-            // Hide forth rotors if they arn't meant to be displayed
-            if (!this.FourRotors)
+            // Display correct plugboard settings
+            for (int i = 0; i < 10; i++)
             {
-                this.RotorSettingsGrid.ColumnDefinitions[0].Width = new GridLength(0);
-                this.RotorSettingsGrid.ColumnDefinitions[4].Width = new GridLength(0);
+                TextBox setting = (TextBox)this.FindName(string.Format("Plugboard{0}", i.ToString()));
+                setting.Text = this.PlugboardSettings[0];
             }
 
             // Display correct checkbox for four rotors
             this.FourRotorCheckBox.IsChecked = this.FourRotors;
+        }
+
+        /// <summary>
+        /// Removes duplicate characters from a string.
+        /// </summary>
+        /// <param name="s"> The string. </param>
+        /// <returns> The string without duplicates. </returns>
+        protected string RemoveDuplicateCharacters(string s)
+        {
+            // The string without duplicates
+            string result = string.Empty;
+
+            // Add each new character to the string
+            foreach (char c in s)
+            {
+                if (!result.Contains(c.ToString()))
+                {
+                    result += c;
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -227,6 +256,69 @@ namespace Enigma
 
             // Display the correct settings
             this.DisplayCorrectSettings();
+        }
+
+        /// <summary>
+        /// Handles the change of text in a plug board text box.
+        /// </summary>
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event arguments. </param>
+        private void Plugboard_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Convert the origin of the event to a text box
+            TextBox senderTextbox = (TextBox)sender;
+
+            // Get the current selected index and make the string upper case
+            int selectedIndex = senderTextbox.SelectionStart; 
+            string text = senderTextbox.Text.ToUpper();
+
+            // Filter out non-alphabetic characters remove duplicates and set length to 2
+            text = Regex.Replace(text, "[^A-Z]", string.Empty);
+            text = this.RemoveDuplicateCharacters(text);
+            text = text.Length > 2 ? text.Substring(0, 2) : text;
+
+            // Get the index of the current textbox
+            int textBoxIndex = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                if (this.FindName(string.Format("Plugboard{0}", i.ToString())).Equals(sender))
+                {
+                    textBoxIndex = i;
+                }
+            }
+
+            // Remove repeated characters
+            for (int i = 0; i < text.Length; i++)
+            {
+                // Check if the character has already been used
+                for (int j = 0; j < 10; j++)
+                {
+                    if (j == textBoxIndex)
+                    {
+                        // Don't check the text box being changed
+                        continue;
+                    }
+                    else
+                    {
+                        // Check if the text box being check contians the letter
+                        TextBox checkingTextbox = (TextBox)this.FindName(string.Format("Plugboard{0}", j.ToString()));
+                        if (checkingTextbox.Text.Contains(text[i].ToString()))
+                        {
+                            // Remove the letter if the textbox contains it
+                            text = text.Remove(i, 1);
+                            i--;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // Store new plugboard setting
+            this.PlugboardSettings[textBoxIndex] = text.ToLower();
+            senderTextbox.Text = text;
+
+            // Reset the selected index
+            senderTextbox.SelectionStart = selectedIndex;
         }
 
         /// <summary>

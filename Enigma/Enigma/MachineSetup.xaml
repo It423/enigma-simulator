@@ -69,16 +69,16 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Label Grid.Column="0" Grid.ColumnSpan="10" Content="Plugboard" FontWeight="Bold"/>
-            <TextBox x:Name="Plugboard0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard2" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard3" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard4" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard5" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard6" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard7" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard8" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
-            <TextBox x:Name="Plugboard9" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New"/>
+            <TextBox x:Name="Plugboard0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard1" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard2" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard3" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard4" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard5" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard6" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard7" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard8" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
+            <TextBox x:Name="Plugboard9" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" FontFamily="Courier New" TextChanged="Plugboard_TextChanged"/>
         </Grid>
         <Button x:Name="ClearSettings" Content="  Clear Settings  " HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="ClearSettings_Click"/>
         <Button x:Name="Begin" Content="  Being Encryption  " HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="Begin_Click"/>
