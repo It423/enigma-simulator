@@ -20,9 +20,13 @@ namespace EnigmaUtilities.Components
             this.EncryptionKeys = new Dictionary<char, char>();
             foreach (string plug in plugs)
             {
-                // Add both ways round so its not required to look backwards across the plugboard during the encryption
-                this.EncryptionKeys.Add(plug[0], plug[1]);
-                this.EncryptionKeys.Add(plug[1], plug[0]);
+                // Only add to plugboard if its and length that won't create errors (2 or above)
+                if (plug.Length >= 2)
+                {
+                    // Add both ways round so its not required to look backwards across the plugboard during the encryption
+                    this.EncryptionKeys.Add(plug[0], plug[1]);
+                    this.EncryptionKeys.Add(plug[1], plug[0]);
+                }
             }
         }
 
