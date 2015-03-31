@@ -89,7 +89,7 @@ namespace Enigma
             for (int i = 0; i < 10; i++)
             {
                 TextBox setting = (TextBox)this.FindName(string.Format("Plugboard{0}", i.ToString()));
-                setting.Text = this.PlugboardSettings[0];
+                setting.Text = this.PlugboardSettings[i].ToUpper();
             }
 
             // Display correct checkbox for four rotors
