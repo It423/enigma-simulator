@@ -3,7 +3,9 @@
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using Enigma.Data;
 using EnigmaUtilities;
+using EnigmaUtilities.Components;
 
 namespace Enigma
 {
@@ -23,6 +25,16 @@ namespace Enigma
             this.RingSettingsActive = false;
             this.ResetData();
         }
+
+        /// <summary>
+        /// Gets or sets the data about the current rotors.
+        /// </summary>
+        public RotorData[] RotorData { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data about the current reflector.
+        /// </summary>
+        public ReflectorData ReflectorData { get; set; }
 
         /// <summary>
         /// Gets or sets the ring settings.
@@ -59,7 +71,15 @@ namespace Enigma
             this.RingSettings = new int[4] { 0, 0, 0, 0 };
             this.RotorPositions = new int[4] { 0, 0, 0, 0 };
             this.PlugboardSettings = new string[10] { string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty };
-            
+            this.ReflectorData = new ReflectorData("B", "YRUHQSLDPXNGOKMIEBFZCWVJAT");
+            this.RotorData = new RotorData[4] 
+            {
+                new RotorData("Beta", "LEYJVCNIXWPBQMDRTAKZGFUHOS", ""),
+                new RotorData("III", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "W"),
+                new RotorData("II", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "F"),
+                new RotorData("I", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", "R")
+            };
+
             // Display correct content
             this.DisplayCorrectSettings();
         }
@@ -89,7 +109,7 @@ namespace Enigma
             for (int i = 0; i < 10; i++)
             {
                 TextBox setting = (TextBox)this.FindName(string.Format("Plugboard{0}", i.ToString()));
-                setting.Text = this.PlugboardSettings[i].ToUpper();
+                setting.Text = this.PlugboardSettings[i];
             }
 
             // Display correct checkbox for four rotors
@@ -126,26 +146,26 @@ namespace Enigma
         private void Begin_Click(object sender, RoutedEventArgs e)
         {
             // Use the currently selected rotor based settings to create the rotors
-            ////int firstRotor = this.FourRotors ? 0 : 1; // Get the first rotor number
-            ////Rotor[] rotors = new Rotor[4 - firstRotor]; // Create an array of rotors
-            ////for (int i = firstRotor; i < 4; i++)
-            ////{
-            ////    // Generate the rotor
-            ////    rotors[i - firstRotor] = new Rotor(this.RingSettings[i], this.RotorPositions[i], ...);
-            ////}
+            int firstRotor = this.FourRotors ? 0 : 1; // Get the first rotor number
+            Rotor[] rotors = new Rotor[4 - firstRotor]; // Create an array of rotors
+            for (int i = firstRotor; i < 4; i++)
+            {
+                // Generate the rotor
+                rotors[i - firstRotor] = new Rotor(this.RingSettings[i], this.RotorPositions[i], this.RotorData[i].Wiring, this.RotorData[i].TunringNotches, i - firstRotor);
+            }
 
             // Create an instance of the reflector and plugboard
-            ////Reflector reflector = new Reflector(...);
-            ////Plugboard plugboard = new Plugboard(this.PlugboardSettings);
+            Reflector reflector = new Reflector(ReflectorData.Wiring);
+            Plugboard plugboard = new Plugboard(this.PlugboardSettings);
 
             // Use settings to create enigma machine instance
-            ////EnigmaMachine em = new EnigmaMachine(reflector, rotors, plugboard);
+            EnigmaMachine em = new EnigmaMachine(reflector, rotors, plugboard);
 
             // Create encryption window
-            ////EnigmaWriter ew = new EnigmaWriter(em);
+            EnigmaWriter ew = new EnigmaWriter(em);
 
             // Show encryptor, hide settings
-            ////ew.Show();
+            ew.Show();
             this.Close();
         }
 
@@ -318,7 +338,7 @@ namespace Enigma
             }
 
             // Store new plugboard setting
-            this.PlugboardSettings[textBoxIndex] = text.ToLower();
+            this.PlugboardSettings[textBoxIndex] = text;
             senderTextbox.Text = text;
 
             // Reset the selected index
