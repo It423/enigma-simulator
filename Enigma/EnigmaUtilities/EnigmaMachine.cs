@@ -17,14 +17,12 @@ namespace EnigmaUtilities
         /// <param name="reflector"> The reflector to be used by the machine. </param>
         /// <param name="rotors"> The rotors to be used by the machine. </param>
         /// <param name="plugboard"> The plug board to be used by the machine. </param>
-        /// <param name="etw"> The ETW to be used by the machine. </param>
-        public EnigmaMachine(Reflector reflector, Rotor[] rotors, Plugboard plugboard, ETW etw)
+        public EnigmaMachine(Reflector reflector, Rotor[] rotors, Plugboard plugboard)
         {
             // Set up components
             this.Reflector = reflector;
             this.Plugboard = plugboard;
             this.Rotors = rotors;
-            this.ETW = etw;
 
             // Apply to ring event handlers
             this.ApplyToRotorEvents();
@@ -44,11 +42,6 @@ namespace EnigmaUtilities
         /// Gets or sets the plug board.
         /// </summary>
         public Plugboard Plugboard { get; protected set; }
-
-        /// <summary>
-        /// Gets or sets the ETW used by the machine.
-        /// </summary>
-        public ETW ETW { get; protected set; }
 
         /// <summary>
         /// Applies to the rotor events.
@@ -79,9 +72,6 @@ namespace EnigmaUtilities
 
                 // Send the signal through the plugboard
                 char newChar = this.Plugboard.Encrypt(c);
-                
-                // Run through the ETW
-                newChar = this.ETW.Encrypt(newChar);
 
                 // Run the signal down the rotors, through the reflector then back down the rotors
                 int nextRotorAddition = -1;
@@ -102,9 +92,6 @@ namespace EnigmaUtilities
                     // Run the signal through the rotor
                     newChar = this.Rotors[nextRotor].Encrypt(newChar);
                 }
-
-                // Runs the character back across the ETW
-                newChar = this.ETW.Encrypt(newChar);
 
                 // Send the signal through the plugboard again
                 newChar = this.Plugboard.Encrypt(newChar);
