@@ -23,9 +23,12 @@ namespace EnigmaUtilities.Components
                 // Only add to plugboard if its and length that won't create errors (2 or above)
                 if (plug.Length >= 2)
                 {
+                    // Make sure it is lower case
+                    string lowerPlug = plug.ToLower();
+
                     // Add both ways round so its not required to look backwards across the plugboard during the encryption
-                    this.EncryptionKeys.Add(plug[0], plug[1]);
-                    this.EncryptionKeys.Add(plug[1], plug[0]);
+                    this.EncryptionKeys.Add(lowerPlug[0], lowerPlug[1]);
+                    this.EncryptionKeys.Add(lowerPlug[1], lowerPlug[0]);
                 }
             }
         }

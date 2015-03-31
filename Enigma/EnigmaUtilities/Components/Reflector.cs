@@ -15,6 +15,9 @@ namespace EnigmaUtilities.Components
         /// <param name="wiring"> The wirings of the alphabet. </param>
         public Reflector(string wiring)
         {
+            // Make sure the wiring is in lower case
+            wiring = wiring.ToLower();
+
             // Create the dictionary of the wiring
             this.EncryptionKeys = new Dictionary<char, char>();
             for (int i = 0; i < 26; i++)

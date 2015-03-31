@@ -27,6 +27,10 @@ namespace EnigmaUtilities.Components
             this.RotorSetting = rotorSetting;
             this.OriginalRotorSetting = rotorSetting;
 
+            // Change the notches and wiring to lower case
+            wiring = wiring.ToLower();
+            turnNotches = turnNotches.ToLower();
+
             // Create the dictionary of encrypted letters
             this.EncryptionKeys = new Dictionary<char, char>();
             for (int i = 0; i < 26; i++)
