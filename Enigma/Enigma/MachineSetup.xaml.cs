@@ -159,7 +159,7 @@ namespace Enigma
             Plugboard plugboard = new Plugboard(this.PlugboardSettings);
 
             // Use settings to create enigma machine instance
-            EnigmaMachine em = new EnigmaMachine(reflector, rotors, plugboard);
+            EnigmaMachine em = new EnigmaMachine(reflector, rotors, plugboard, new ETW(EnigmaUtilities.Resources.Alphabet));
 
             // Create encryption window
             EnigmaWriter ew = new EnigmaWriter(em);
