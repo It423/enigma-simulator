@@ -1,5 +1,6 @@
 ﻿// EnigmaWriter.xaml.cs
 // <copyright file="EnigmaWriter.xaml.cs"> This code is protected under the MIT License. </copyright>
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using EnigmaUtilities;
@@ -35,7 +36,7 @@ namespace Enigma
             this.Input.TextChanged += this.Input_TextChanged;
 
             // Apply to window closing event handler
-            this.Closed += this.Window_Closed;
+            this.Closing += this.Window_Closing;
         }
 
         /// <summary>
@@ -100,7 +101,7 @@ namespace Enigma
         /// </summary>
         /// <param name="sender"> The origin of the event. </param>
         /// <param name="e"> The event arguments. </param>
-        private void Window_Closed(object sender, System.EventArgs e)
+        private void Window_Closing(object sender, EventArgs e)
         {
             // Open set up window on closure
             MachineSetup ms = new MachineSetup();
