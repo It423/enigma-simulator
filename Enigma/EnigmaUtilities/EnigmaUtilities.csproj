@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Component.cs" />
-    <Compile Include="Components\ETW.cs" />
     <Compile Include="Components\Plugboard.cs" />
     <Compile Include="Components\Reflector.cs" />
     <Compile Include="Components\Rotor.cs" />
