@@ -74,7 +74,7 @@ namespace Enigma
             this.ReflectorData = new ReflectorData("B", "YRUHQSLDPXNGOKMIEBFZCWVJAT");
             this.RotorData = new RotorData[4] 
             {
-                new RotorData("Beta", "LEYJVCNIXWPBQMDRTAKZGFUHOS", ""),
+                new RotorData("Beta", "LEYJVCNIXWPBQMDRTAKZGFUHOS", string.Empty),
                 new RotorData("III", "BDFHJLCPRTXVZNYEIWGAKMUSQO", "W"),
                 new RotorData("II", "AJDKSIRUXBLHWTMCQGZNPYFVOE", "F"),
                 new RotorData("I", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", "R")
