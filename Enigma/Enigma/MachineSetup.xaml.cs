@@ -103,6 +103,10 @@ namespace Enigma
                 // Display correct ring settings
                 Label ringSetting = (Label)this.FindName(string.Format("RingSettingDsp{0}", i.ToString()));
                 ringSetting.Content = this.RingSettings[i] + 1;
+
+                // Display the correct name 
+                Label rotor = (Label)this.FindName(string.Format("Rotor{0}", i.ToString()));
+                rotor.Content = this.RotorData[i].Name;
             }
 
             // Display correct plugboard settings
@@ -111,6 +115,9 @@ namespace Enigma
                 TextBox setting = (TextBox)this.FindName(string.Format("Plugboard{0}", i.ToString()));
                 setting.Text = this.PlugboardSettings[i];
             }
+
+            // Display the correct reflector name
+            this.Reflector.Content = this.ReflectorData.Name;
 
             // Display correct checkbox for four rotors
             this.FourRotorCheckBox.IsChecked = this.FourRotors;
@@ -234,11 +241,13 @@ namespace Enigma
             {
                 int currentFourthRotorIndex = this.RingSettingsActive ? 0 : 4; // Get the currently displayed fourth rotor
                 this.RotorSettingsGrid.ColumnDefinitions[currentFourthRotorIndex].Width = new GridLength(1, GridUnitType.Star);
+                this.ComponentGrid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
             }
             else
             {
                 this.RotorSettingsGrid.ColumnDefinitions[0].Width = new GridLength(0);
                 this.RotorSettingsGrid.ColumnDefinitions[4].Width = new GridLength(0);
+                this.ComponentGrid.RowDefinitions[2].Height = new GridLength(0);
             }
         }
 
