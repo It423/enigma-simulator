@@ -1,10 +1,42 @@
 ﻿<Window x:Class="Enigma.MachineSetup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Enigma - Setup" Width="500" Height="300" ResizeMode="CanMinimize">
+        Title="Enigma - Setup" Width="500" Height="450" ResizeMode="CanMinimize">
     <Grid>
         <Label HorizontalAlignment="Center" Margin="0" Content="Enigma Setup" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Grid x:Name="RotorSettingsGrid" Margin="10,35,10,0" VerticalAlignment="Top" Height="140">
+        <Grid x:Name="ComponentGrid" Margin="10,35,10,0" VerticalAlignment="Top" Height="150">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Content="Components:" FontWeight="Bold"/>
+            <Button x:Name="CreateNewComponent" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Content="  Create Component  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            <Label Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="3" Content="Reflector:"/>
+            <Label Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 4:"/>
+            <Label Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 3:"/>
+            <Label Grid.Row="4"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 2:"/>
+            <Label Grid.Row="5"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 1:"/>
+            <Label x:Name="Reflector" Grid.Column="1" Grid.Row="1" Content=""/>
+            <Label x:Name="Rotor0" Grid.Column="1" Grid.Row="2"/>
+            <Label x:Name="Rotor1" Grid.Column="1" Grid.Row="3"/>
+            <Label x:Name="Rotor2" Grid.Column="1" Grid.Row="4"/>
+            <Label x:Name="Rotor3" Grid.Column="1" Grid.Row="5"/>
+            <Button x:Name="BrowseReflector" Grid.Column="2" Grid.Row="1" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            <Button x:Name="BrowseRotor0" Grid.Column="2" Grid.Row="2" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            <Button x:Name="BrowseRotor1" Grid.Column="2" Grid.Row="3" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            <Button x:Name="BrowseRotor2" Grid.Column="2" Grid.Row="4" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            <Button x:Name="BrowseRotor3" Grid.Column="2" Grid.Row="5" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+        </Grid>
+        <Grid x:Name="RotorSettingsGrid" Margin="10,185,10,0" VerticalAlignment="Top" Height="140">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition Width="0*"/>
@@ -51,7 +83,7 @@
             <Button x:Name="SwitchRotorView" Grid.ColumnSpan="8" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Content="  View Ring Settings  " Click="SwitchRotorView_Click"/>
             <CheckBox x:Name="FourRotorCheckBox" Content="Four Rotors" Grid.Column="0" Grid.ColumnSpan="8" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Checked="FourRotorCheckBox_Changed" Unchecked="FourRotorCheckBox_Changed"/>
         </Grid>
-        <Grid x:Name="PlugboardGrid" Margin="10,170,10,0" VerticalAlignment="Top" Height="60">
+        <Grid x:Name="PlugboardGrid" Margin="10,320,10,0" VerticalAlignment="Top" Height="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
