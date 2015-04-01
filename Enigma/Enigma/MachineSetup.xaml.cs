@@ -3,9 +3,9 @@
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using Enigma.Data;
 using EnigmaUtilities;
 using EnigmaUtilities.Components;
+using EnigmaUtilities.Data;
 
 namespace Enigma
 {
