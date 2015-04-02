@@ -52,5 +52,27 @@ namespace EnigmaUtilities
         {
             return Alphabet.Contains(c) ? Alphabet.IndexOf(c) : -1;
         }
+
+        /// <summary>
+        /// Removes duplicate characters from a string.
+        /// </summary>
+        /// <param name="s"> The string. </param>
+        /// <returns> The string without duplicates. </returns>
+        public static string RemoveDuplicateCharacters(string s)
+        {
+            // The string without duplicates
+            string result = string.Empty;
+
+            // Add each new character to the string
+            foreach (char c in s)
+            {
+                if (!result.Contains(c.ToString()))
+                {
+                    result += c;
+                }
+            }
+
+            return result;
+        }
     }
 }

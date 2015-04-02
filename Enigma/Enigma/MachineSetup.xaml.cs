@@ -64,7 +64,7 @@ namespace Enigma
         /// <summary>
         /// Resets the settings on the machine.
         /// </summary>
-        protected void ResetData()
+        private void ResetData()
         {
             // Reset data
             this.FourRotors = false;
@@ -87,7 +87,7 @@ namespace Enigma
         /// <summary>
         /// Displays the correct rotor settings and keep them in range of 0-25.
         /// </summary>
-        protected void DisplayCorrectSettings()
+        private void DisplayCorrectSettings()
         {
             // Display correct rotor data
             for (int i = 0; i < 4; i++)
@@ -121,28 +121,6 @@ namespace Enigma
 
             // Display correct checkbox for four rotors
             this.FourRotorCheckBox.IsChecked = this.FourRotors;
-        }
-
-        /// <summary>
-        /// Removes duplicate characters from a string.
-        /// </summary>
-        /// <param name="s"> The string. </param>
-        /// <returns> The string without duplicates. </returns>
-        protected string RemoveDuplicateCharacters(string s)
-        {
-            // The string without duplicates
-            string result = string.Empty;
-
-            // Add each new character to the string
-            foreach (char c in s)
-            {
-                if (!result.Contains(c.ToString()))
-                {
-                    result += c;
-                }
-            }
-
-            return result;
         }
 
         /// <summary>
@@ -307,7 +285,7 @@ namespace Enigma
 
             // Filter out non-alphabetic characters remove duplicates and set length to 2
             text = Regex.Replace(text, "[^A-Z]", string.Empty);
-            text = this.RemoveDuplicateCharacters(text);
+            text = EnigmaUtilities.Resources.RemoveDuplicateCharacters(text);
             text = text.Length > 2 ? text.Substring(0, 2) : text;
 
             // Get the index of the current textbox
