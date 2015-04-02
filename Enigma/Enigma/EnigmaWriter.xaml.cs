@@ -47,7 +47,7 @@ namespace Enigma
         /// <summary>
         /// Displays the correct rotor positions.
         /// </summary>
-        protected void DisplayCorrectRotors()
+        private void DisplayCorrectRotors()
         {
             for (int i = 0; i < this.EnigmaMachine.Rotors.Length; i++)
             {
