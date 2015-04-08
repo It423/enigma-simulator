@@ -124,6 +124,43 @@ namespace Enigma
         }
 
         /// <summary>
+        /// Removes repeated characters across the plug board.
+        /// </summary>
+        /// <param name="text"> The text in the plug board text box. </param>
+        /// <param name="textBoxIndex"> The index of the plug board text box. </param>
+        /// <returns> The new string in the text box after repeats are removed. </returns>
+        private string RemovePlugboardRepeats(string text, int textBoxIndex)
+        {
+            // Iterate over plug board settings
+            for (int i = 0; i < text.Length; i++)
+            {
+                // Check if the character has already been used
+                for (int j = 0; j < 10; j++)
+                {
+                    if (j == textBoxIndex)
+                    {
+                        // Don't check the text box being changed
+                        continue;
+                    }
+                    else
+                    {
+                        // Check if the text box being check contians the letter
+                        TextBox checkingTextbox = (TextBox)this.FindName(string.Format("Plugboard{0}", j.ToString()));
+                        if (checkingTextbox.Text.Contains(text[i].ToString()))
+                        {
+                            // Remove the letter if the textbox contains it
+                            text = text.Remove(i, 1);
+                            i--;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return text;
+        }
+
+        /// <summary>
         /// Begins encryption using the current enigma settings.
         /// </summary>
         /// <param name="sender"> The origin of the event. </param>
@@ -307,43 +344,6 @@ namespace Enigma
 
             // Reset the selected index
             senderTextbox.SelectionStart = selectedIndex;
-        }
-
-        /// <summary>
-        /// Removes repeated characters across the plug board.
-        /// </summary>
-        /// <param name="text"> The text in the plug board text box. </param>
-        /// <param name="textBoxIndex"> The index of the plug board text box. </param>
-        /// <returns> The new string in the text box after repeats are removed. </returns>
-        private string RemovePlugboardRepeats(string text, int textBoxIndex)
-        {
-            // Iterate over plug board settings
-            for (int i = 0; i < text.Length; i++)
-            {
-                // Check if the character has already been used
-                for (int j = 0; j < 10; j++)
-                {
-                    if (j == textBoxIndex)
-                    {
-                        // Don't check the text box being changed
-                        continue;
-                    }
-                    else
-                    {
-                        // Check if the text box being check contians the letter
-                        TextBox checkingTextbox = (TextBox)this.FindName(string.Format("Plugboard{0}", j.ToString()));
-                        if (checkingTextbox.Text.Contains(text[i].ToString()))
-                        {
-                            // Remove the letter if the textbox contains it
-                            text = text.Remove(i, 1);
-                            i--;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            return text;
         }
 
         /// <summary>
