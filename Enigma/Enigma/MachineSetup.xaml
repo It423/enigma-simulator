@@ -19,7 +19,7 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Content="Components:" FontWeight="Bold"/>
-            <Button x:Name="CreateNewComponent" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Content="  Create Component  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            <Button x:Name="CreateNewComponent" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Content="  Create Component  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" Click="CreateNewComponent_Click"/>
             <Label Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="3" Content="Reflector:"/>
             <Label Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 4:"/>
             <Label Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 3:"/>

@@ -341,5 +341,16 @@ namespace Enigma
         {
             this.ResetData();
         }
+
+        /// <summary>
+        /// Handles the click of the create new component button.
+        /// </summary>
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event arguments. </param>
+        private void CreateNewComponent_Click(object sender, RoutedEventArgs e)
+        {
+            CreateComponent cc = new CreateComponent();
+            cc.Show();
+        }
     }
 }
