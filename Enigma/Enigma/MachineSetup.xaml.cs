@@ -298,7 +298,26 @@ namespace Enigma
                 }
             }
 
-            // Remove repeated characters
+            // Remove repeated characters across the plugboard
+            text = this.RemovePlugboardRepeats(text, textBoxIndex);
+
+            // Store new plugboard setting
+            this.PlugboardSettings[textBoxIndex] = text;
+            senderTextbox.Text = text;
+
+            // Reset the selected index
+            senderTextbox.SelectionStart = selectedIndex;
+        }
+
+        /// <summary>
+        /// Removes repeated characters across the plug board.
+        /// </summary>
+        /// <param name="text"> The text in the plug board text box. </param>
+        /// <param name="textBoxIndex"> The index of the plug board text box. </param>
+        /// <returns> The new string in the text box after repeats are removed. </returns>
+        private string RemovePlugboardRepeats(string text, int textBoxIndex)
+        {
+            // Iterate over plug board settings
             for (int i = 0; i < text.Length; i++)
             {
                 // Check if the character has already been used
@@ -324,12 +343,7 @@ namespace Enigma
                 }
             }
 
-            // Store new plugboard setting
-            this.PlugboardSettings[textBoxIndex] = text;
-            senderTextbox.Text = text;
-
-            // Reset the selected index
-            senderTextbox.SelectionStart = selectedIndex;
+            return text;
         }
 
         /// <summary>
