@@ -1,0 +1,107 @@
+﻿<Window x:Class="Enigma.CreateComponent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create Component" Height="240" Width="625" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Center" Grid.ColumnSpan="256" Margin="0" Content="Create Component" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <CheckBox x:Name="ReflectorCheckBox" Grid.Row="1" Content="Reflector" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Content="Wiring:" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Grid x:Name="SettingsGrid" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="A" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="B" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="C" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="D" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="4" Content="E" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="5" Content="F" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="6" Content="G" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="7" Content="H" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="8" Content="I" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="9" Content="J" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="10" Content="K" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="11" Content="L" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="12" Content="M" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="13" Content="N" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="14" Content="O" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="15" Content="P" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="16" Content="Q" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="17" Content="R" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="18" Content="S" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="19" Content="T" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="20" Content="U" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="21" Content="V" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="22" Content="W" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="23" Content="X" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="24" Content="Y" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <Label Grid.Row="0" Grid.Column="25" Content="Z" VerticalAlignment="Center"  HorizontalAlignment="Center" FontFamily="Courier New"/>
+            <TextBox x:Name="A" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="B" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="C" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="D" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="E" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="F" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="G" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="H" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="I" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="J" Grid.Row="1" Grid.Column="9" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="K" Grid.Row="1" Grid.Column="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="L" Grid.Row="1" Grid.Column="11" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="M" Grid.Row="1" Grid.Column="12" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="N" Grid.Row="1" Grid.Column="13" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="O" Grid.Row="1" Grid.Column="14" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="P" Grid.Row="1" Grid.Column="15" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="Q" Grid.Row="1" Grid.Column="16" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="R" Grid.Row="1" Grid.Column="17" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="S" Grid.Row="1" Grid.Column="18" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="T" Grid.Row="1" Grid.Column="19" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="U" Grid.Row="1" Grid.Column="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="V" Grid.Row="1" Grid.Column="21" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="W" Grid.Row="1" Grid.Column="22" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="X" Grid.Row="1" Grid.Column="23" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="Y" Grid.Row="1" Grid.Column="24" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <TextBox x:Name="Z" Grid.Row="1" Grid.Column="25" HorizontalAlignment="Center" VerticalAlignment="Center" Width="13" FontFamily="Courier New"/>
+            <Label Grid.Row="2" Grid.ColumnSpan="5" Content="Turning Notches:" VerticalAlignment="Center" FontWeight="Bold"/>
+            <TextBox x:Name="TurningNotches" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="21" HorizontalAlignment="Left" VerticalAlignment="Center" Width="338" FontFamily="Courier New"/>
+        </Grid>
+        <Button x:Name="Save" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Content="  Save  "/>
+    </Grid>
+</Window>
