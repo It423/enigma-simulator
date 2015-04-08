@@ -37,9 +37,9 @@ namespace EnigmaUtilities
         /// </summary>
         /// <param name="i"> The integer to convert to a character. </param>
         /// <returns> The character value of the integer. </returns>
-        public static char ToChar(this int i)
+        public static char ToChar(this int i, bool lowerCase = true)
         {
-            return Alphabet[Mod(i, 26)];
+            return lowerCase ? Alphabet[Mod(i, 26)] : Alphabet.ToUpper()[Mod(i, 26)];
         }
 
         /// <summary>
@@ -50,6 +50,9 @@ namespace EnigmaUtilities
         /// <remarks> Will return -1 if not in the alphabet. </remarks>
         public static int ToInt(this char c)
         {
+            // Make sure c is lower case
+            c = c.ToString().ToLower()[0];
+
             return Alphabet.Contains(c) ? Alphabet.IndexOf(c) : -1;
         }
 
