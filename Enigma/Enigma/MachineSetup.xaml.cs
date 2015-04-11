@@ -1,11 +1,16 @@
 ﻿// MachineSetup.xaml.cs
 // <copyright file="MachineSetup.xaml.cs"> This code is protected under the MIT License. </copyright>
+using Microsoft.Win32;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml;
+using System.Xml.Linq;
 using EnigmaUtilities;
 using EnigmaUtilities.Components;
 using EnigmaUtilities.Data;
+using EnigmaUtilities.Data.XML;
 
 namespace Enigma
 {
@@ -97,22 +102,22 @@ namespace Enigma
                 this.RotorPositions[i] = EnigmaUtilities.Resources.Mod(this.RotorPositions[i], 26);
 
                 // Display correct rotor positon
-                Label rotorPosition = (Label)this.FindName(string.Format("RotorPositionDsp{0}", i.ToString()));
+                Label rotorPosition = (Label)this.FindName(string.Format("RotorPositionDsp{0}", i));
                 rotorPosition.Content = this.RotorPositions[i].ToChar().ToString().ToUpper();
 
                 // Display correct ring settings
-                Label ringSetting = (Label)this.FindName(string.Format("RingSettingDsp{0}", i.ToString()));
+                Label ringSetting = (Label)this.FindName(string.Format("RingSettingDsp{0}", i));
                 ringSetting.Content = this.RingSettings[i] + 1;
 
                 // Display the correct name 
-                Label rotor = (Label)this.FindName(string.Format("Rotor{0}", i.ToString()));
+                Label rotor = (Label)this.FindName(string.Format("Rotor{0}", i));
                 rotor.Content = this.SetDisplayLength(this.RotorData[i].Name, 40);
             }
 
             // Display correct plugboard settings
             for (int i = 0; i < 10; i++)
             {
-                TextBox setting = (TextBox)this.FindName(string.Format("Plugboard{0}", i.ToString()));
+                TextBox setting = (TextBox)this.FindName(string.Format("Plugboard{0}", i));
                 setting.Text = this.PlugboardSettings[i];
             }
 
@@ -177,6 +182,95 @@ namespace Enigma
             }
 
             return text;
+        }
+
+        /// <summary>
+        /// Opens a file dialog and reads the contents of the file selected by the user.
+        /// </summary>
+        /// <returns> The contents of the file selected. </returns>
+        private string OpenFileFromUser()
+        {
+            // Create a default directory to store component if it does not exist
+            string path = Directory.GetCurrentDirectory() + "\\Components";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            // Create the save dialog
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.RestoreDirectory = true;
+            ofd.InitialDirectory = path;
+            ofd.Filter = "XML|*.xml|All files|*.*";
+            ofd.Title = "Open Component";
+
+            // Open the dialog
+            string text = string.Empty;
+            if ((bool)ofd.ShowDialog(this))
+            {
+                // Read the contents of the selected file
+                try
+                {
+                    text = File.ReadAllText(ofd.FileName);
+                }
+                catch
+                {
+                    MessageBoxResult msg = MessageBox.Show(this, "The component failed to load!", "Error!");
+                }
+            }
+
+            return text;
+        }
+
+        /// <summary>
+        /// Parses the contents of a xml file.
+        /// </summary>
+        /// <param name="rotorIndex"> The index of the rotor. </param>
+        /// <param name="text"> The content of the xml file. </param>
+        /// <remarks> If the rotor index is lower than 0 it is classed as a reflector. </remarks>
+        private void ParseXMLFile(int rotorIndex, string text)
+        {
+            // Only run if the xml exists
+            if (text != string.Empty)
+            {
+                // Parse the xml
+                XElement xml;
+                try
+                {
+                    xml = XElement.Parse(text);
+                }
+                catch (XmlException)
+                {
+                    MessageBoxResult msg = MessageBox.Show(this, "The XML in invalid!", "Error!");
+                    return;
+                }
+
+                // Turn the xml into reflector/rotor data and save
+                if (rotorIndex < 0)
+                {
+                    ReflectorData data = xml.ToReflectorData();
+                    if (data == null)
+                    {
+                        MessageBoxResult msg = MessageBox.Show(this, "The XML is invalid!", "Error!");
+                    }
+                    else
+                    {
+                        this.ReflectorData = data;
+                    }
+                }
+                else
+                {
+                    RotorData data = xml.ToRotorData();
+                    if (data == null)
+                    {
+                        MessageBoxResult msg = MessageBox.Show(this, "The XML is invalid!", "Error!");
+                    }
+                    else
+                    {
+                        this.RotorData[rotorIndex] = data;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -295,25 +389,25 @@ namespace Enigma
             // Iterate over all 4 sets of buttons
             for (int i = 0; i < 4; i++)
             {
-                if (sender.Equals(this.FindName(string.Format("RotorPositionDec{0}", i.ToString()))))
+                if (sender.Equals(this.FindName(string.Format("RotorPositionDec{0}", i))))
                 {
                     // If the button is a decrease rotor position, decrease the rotor position
                     this.RotorPositions[i]--;
                     break;
                 }
-                else if (sender.Equals(this.FindName(string.Format("RotorPositionInc{0}", i.ToString()))))
+                else if (sender.Equals(this.FindName(string.Format("RotorPositionInc{0}", i))))
                 {
                     // If the button is a increase rotor position, increase the rotor position
                     this.RotorPositions[i]++;
                     break;
                 }
-                else if (sender.Equals(this.FindName(string.Format("RingSettingDec{0}", i.ToString()))))
+                else if (sender.Equals(this.FindName(string.Format("RingSettingDec{0}", i))))
                 {
                     // If the button is a decrease ring setting, decrease the rotor position
                     this.RingSettings[i]--;
                     break;
                 }
-                else if (sender.Equals(this.FindName(string.Format("RingSettingInc{0}", i.ToString()))))
+                else if (sender.Equals(this.FindName(string.Format("RingSettingInc{0}", i))))
                 {
                     // If the button is a increase ring setting, increase the rotor position
                     this.RingSettings[i]++;
@@ -348,7 +442,7 @@ namespace Enigma
             int textBoxIndex = 0;
             for (int i = 0; i < 10; i++)
             {
-                if (this.FindName(string.Format("Plugboard{0}", i.ToString())).Equals(sender))
+                if (this.FindName(string.Format("Plugboard{0}", i)).Equals(sender))
                 {
                     textBoxIndex = i;
                 }
@@ -384,6 +478,31 @@ namespace Enigma
         {
             CreateComponent cc = new CreateComponent();
             cc.Show();
+        }
+
+        /// <summary>
+        /// Handles the click of the brouse rotor buttons.
+        /// </summary>
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event arguments. </param>
+        private void Browse_Click(object sender, RoutedEventArgs e)
+        {
+            // Get button index
+            int rotorIndex = -1;
+            for (int i = 0; i < 4; i++)
+            {
+                if (this.FindName(string.Format("BrowseRotor{0}", i)).Equals(sender))
+                {
+                    // If the sender is a rotor browse button tell the program which one it is and that its not a reflector
+                    rotorIndex = i;
+                }
+            }
+
+            // Get the contents of a file from the user
+            string text = this.OpenFileFromUser();
+
+            // Parse the file
+            this.ParseXMLFile(rotorIndex, text);
         }
     }
 }
