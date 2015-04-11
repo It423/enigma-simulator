@@ -47,7 +47,6 @@
     <Compile Include="Components\Reflector.cs" />
     <Compile Include="Components\Rotor.cs" />
     <Compile Include="Components\EventArgs\RotorNotchActivatedEventArgs.cs" />
-    <Compile Include="Data\ComponentData.cs" />
     <Compile Include="Data\ReflectorData.cs" />
     <Compile Include="Data\RotorData.cs" />
     <Compile Include="Data\XML\CheckXML.cs" />
