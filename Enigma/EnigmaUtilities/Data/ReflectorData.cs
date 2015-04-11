@@ -5,7 +5,7 @@ namespace EnigmaUtilities.Data
     /// <summary>
     /// A class that holds data about reflectors to be used.
     /// </summary>
-    public class ReflectorData
+    public class ReflectorData : ComponentData
     {        
         /// <summary>
         /// Initializes a new instance of the <see cref="ReflectorData" /> class.
@@ -17,15 +17,5 @@ namespace EnigmaUtilities.Data
             this.Name = name;
             this.Wiring = wiring;
         }
-
-        /// <summary>
-        /// Gets or sets the name of the reflector.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the wiring to be used for this reflector.
-        /// </summary>
-        public string Wiring { get; set; }
     }
 }

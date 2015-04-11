@@ -5,7 +5,7 @@ namespace EnigmaUtilities.Data
     /// <summary>
     /// A class that holds data about rotors to be used.
     /// </summary>
-    public class RotorData
+    public class RotorData : ComponentData
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RotorData" /> class.
@@ -19,16 +19,6 @@ namespace EnigmaUtilities.Data
             this.Wiring = wiring;
             this.TunringNotches = turningNotches;
         }
-
-        /// <summary>
-        /// Gets or sets the name of the rotor.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the wiring to be used for this rotor.
-        /// </summary>
-        public string Wiring { get; set; }
 
         /// <summary>
         /// Gets or sets the letter that will turn the rotor.
