@@ -76,7 +76,7 @@ namespace Enigma
             this.RingSettings = new int[4] { 0, 0, 0, 0 };
             this.RotorPositions = new int[4] { 0, 0, 0, 0 };
             this.PlugboardSettings = new string[10] { string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty };
-            this.ReflectorData = new ReflectorData("B", "YRUHQSLDPXNGOKMIEBFZCWVJAT");
+            this.ReflectorData = new ReflectorData("Reflector B", "YRUHQSLDPXNGOKMIEBFZCWVJAT");
             this.RotorData = new RotorData[4] 
             {
                 new RotorData("Beta", "LEYJVCNIXWPBQMDRTAKZGFUHOS", string.Empty),
