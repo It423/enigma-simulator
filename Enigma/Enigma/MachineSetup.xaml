@@ -20,16 +20,16 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" Content="Components:" FontWeight="Bold"/>
             <Button x:Name="CreateNewComponent" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Content="  Create Component  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" Click="CreateNewComponent_Click"/>
-            <Label Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="3" Content="Reflector:"/>
-            <Label Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 4:"/>
-            <Label Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 3:"/>
-            <Label Grid.Row="4"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 2:"/>
-            <Label Grid.Row="5"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 1:"/>
-            <Label x:Name="Reflector" Grid.Column="1" Grid.Row="1" Content=""/>
-            <Label x:Name="Rotor0" Grid.Column="1" Grid.Row="2"/>
-            <Label x:Name="Rotor1" Grid.Column="1" Grid.Row="3"/>
-            <Label x:Name="Rotor2" Grid.Column="1" Grid.Row="4"/>
-            <Label x:Name="Rotor3" Grid.Column="1" Grid.Row="5"/>
+            <Label Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="3" Content="Reflector:" VerticalAlignment="Center"/>
+            <Label Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 4:" VerticalAlignment="Center"/>
+            <Label Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 3:" VerticalAlignment="Center"/>
+            <Label Grid.Row="4"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 2:" VerticalAlignment="Center"/>
+            <Label Grid.Row="5"  Grid.Column="0" Grid.ColumnSpan="3" Content="Rotor 1:" VerticalAlignment="Center"/>
+            <Label x:Name="Reflector" Grid.Column="1" Grid.Row="1" FontFamily="Courier New" VerticalAlignment="Bottom"/>
+            <Label x:Name="Rotor0" Grid.Column="1" Grid.Row="2" FontFamily="Courier New" VerticalAlignment="Bottom"/>
+            <Label x:Name="Rotor1" Grid.Column="1" Grid.Row="3" FontFamily="Courier New" VerticalAlignment="Bottom"/>
+            <Label x:Name="Rotor2" Grid.Column="1" Grid.Row="4" FontFamily="Courier New" VerticalAlignment="Bottom"/>
+            <Label x:Name="Rotor3" Grid.Column="1" Grid.Row="5" FontFamily="Courier New" VerticalAlignment="Bottom"/>
             <Button x:Name="BrowseReflector" Grid.Column="2" Grid.Row="1" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
             <Button x:Name="BrowseRotor0" Grid.Column="2" Grid.Row="2" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>
             <Button x:Name="BrowseRotor1" Grid.Column="2" Grid.Row="3" Content="  Browse  " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0"/>

@@ -106,7 +106,7 @@ namespace Enigma
 
                 // Display the correct name 
                 Label rotor = (Label)this.FindName(string.Format("Rotor{0}", i.ToString()));
-                rotor.Content = this.RotorData[i].Name;
+                rotor.Content = this.SetDisplayLength(this.RotorData[i].Name, 40);
             }
 
             // Display correct plugboard settings
@@ -117,7 +117,7 @@ namespace Enigma
             }
 
             // Display the correct reflector name
-            this.Reflector.Content = this.ReflectorData.Name;
+            this.Reflector.Content = this.SetDisplayLength(this.ReflectorData.Name, 40);
 
             // Display correct checkbox for four rotors
             this.FourRotorCheckBox.IsChecked = this.FourRotors;
@@ -155,6 +155,25 @@ namespace Enigma
                         }
                     }
                 }
+            }
+
+            return text;
+        }
+
+        /// <summary>
+        /// Sets the length of a text to fit a certain length.
+        /// </summary>
+        /// <param name="text"> The text to change. </param>
+        /// <param name="length"> The desired length. </param>
+        /// <returns> The text set to the correct length. </returns>
+        private string SetDisplayLength(string text, int length)
+        {
+            // Check if the string is too long
+            if (text.Length > length)
+            {
+                // Set the length and add dots on the end
+                text = text.Substring(0, length - 3);
+                text += "...";
             }
 
             return text;
