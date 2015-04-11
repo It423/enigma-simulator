@@ -1,6 +1,5 @@
 ﻿// MachineSetup.xaml.cs
 // <copyright file="MachineSetup.xaml.cs"> This code is protected under the MIT License. </copyright>
-using Microsoft.Win32;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -11,6 +10,7 @@ using EnigmaUtilities;
 using EnigmaUtilities.Components;
 using EnigmaUtilities.Data;
 using EnigmaUtilities.Data.XML;
+using Microsoft.Win32;
 
 namespace Enigma
 {
@@ -481,7 +481,7 @@ namespace Enigma
         }
 
         /// <summary>
-        /// Handles the click of the brouse rotor buttons.
+        /// Handles the click of the browse rotor buttons.
         /// </summary>
         /// <param name="sender"> The origin of the event. </param>
         /// <param name="e"> The event arguments. </param>
