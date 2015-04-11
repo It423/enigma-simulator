@@ -104,6 +104,6 @@
             <Label Grid.Row="2" Grid.ColumnSpan="5" Content="Turning Notches:" VerticalAlignment="Center" FontWeight="Bold"/>
             <TextBox x:Name="TurningNotches" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="21" HorizontalAlignment="Left" VerticalAlignment="Center" Width="338" FontFamily="Courier New" TextChanged="TurningNotches_TextChanged"/>
         </Grid>
-        <Button x:Name="Save" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Content="  Save  "/>
+        <Button x:Name="Save" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Content="  Save  " Click="Save_Click"/>
     </Grid>
 </Window>

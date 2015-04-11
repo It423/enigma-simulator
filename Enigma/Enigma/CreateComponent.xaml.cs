@@ -1,9 +1,14 @@
 ﻿// CreateComponent.xaml.cs
 // <copyright file="CreateComponent.xaml.cs"> This code is protected under the MIT License. </copyright>using System;
+using Microsoft.Win32;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Linq;
 using EnigmaUtilities;
+using EnigmaUtilities.Data;
+using EnigmaUtilities.Data.XML;
 
 namespace Enigma
 {
@@ -208,6 +213,64 @@ namespace Enigma
             // Set the text and selection index
             ((TextBox)sender).Text = text;
             ((TextBox)sender).SelectionStart = text.Length;
+        }
+
+        /// <summary>
+        /// Handles the click of the save button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            // Check the name is filled in
+            if (ComponentName.Text == string.Empty)
+            {
+                MessageBoxResult msg = MessageBox.Show(this, "The name of the component has not been filled in!", "Error");
+                return;
+            }
+
+            // Get the wiring
+            string wiring = string.Empty;
+            for (int i = 0; i < 26; i++)
+            {
+                wiring += ((TextBox)this.FindName(i.ToChar(false).ToString())).Text.ToLower();
+
+                // Throw error if its not filled in
+                MessageBoxResult msg = MessageBox.Show(this, "The wiring is not complete!", "Error");
+                return;
+            }
+
+            // Create the component data
+            XElement xmlData;
+            if (!(bool)ReflectorCheckBox.IsChecked)
+            {
+                RotorData data = new RotorData(ComponentName.Text, wiring, TurningNotches.Text.ToLower());
+                xmlData = data.ToXElement();
+            }
+            else
+            {
+                ReflectorData data = new ReflectorData(ComponentName.Text, wiring);
+                xmlData = data.ToXElement();
+            }
+
+            // Create the save dialog
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.OverwritePrompt = true;
+            sfd.Filter = "XML|*.xml";
+            sfd.Title = "Save Component";
+
+            // Open the save dialog
+            sfd.ShowDialog();
+
+            // Save the file
+            if (sfd.FileName != string.Empty)
+            {
+                File.WriteAllText(sfd.FileName, xmlData.ToString());
+
+                // Close the create component window
+                MessageBoxResult msg = MessageBox.Show(this, "The component has been saved!", "Saved!");
+                this.Close();
+            }
         }
     }
 }
