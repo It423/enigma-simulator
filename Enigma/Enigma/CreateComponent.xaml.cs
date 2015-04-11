@@ -292,7 +292,7 @@ namespace Enigma
             sfd.Title = "Save Component";
 
             // Open the save dialog
-            sfd.ShowDialog();
+            sfd.ShowDialog(this);
 
             // Save the file
             if (sfd.FileName != string.Empty)
