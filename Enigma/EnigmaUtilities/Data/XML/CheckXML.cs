@@ -155,7 +155,7 @@ namespace EnigmaUtilities.Data.XML
         private static bool ValidTurningNotches(XElement x)
         {
             // Get the turning notches
-            string turningNotches = x.Attribute("TunringNotches").Value.ToLower();
+            string turningNotches = x.Attribute("TurningNotches").Value.ToLower();
 
             // If the letter is not in the alphabet the turning notches are invalid
             foreach (char c in turningNotches)
