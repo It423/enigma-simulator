@@ -503,6 +503,9 @@ namespace Enigma
 
             // Parse the file
             this.ParseXMLFile(rotorIndex, text);
+
+            // Display the correct settings
+            this.DisplayCorrectSettings();
         }
     }
 }
