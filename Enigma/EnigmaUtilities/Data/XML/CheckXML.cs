@@ -34,7 +34,7 @@ namespace EnigmaUtilities.Data.XML
         /// <returns> Whether the xml was valid. </returns>
         public static bool ValidRotorXML(XElement x)
         {
-            if (!ContainsAttributes(x, new string[] { "Name", "Wiring", "TunringNotches" }))
+            if (!ContainsAttributes(x, new string[] { "Name", "Wiring", "TurningNotches" }))
             {
                 // Does not contain attributes so return false
                 return false;

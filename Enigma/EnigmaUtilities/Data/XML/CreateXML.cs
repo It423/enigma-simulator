@@ -33,7 +33,7 @@ namespace EnigmaUtilities.Data.XML
                 "RotorData",
                 new XAttribute("Name", rd.Name),
                 new XAttribute("Wiring", rd.Wiring),
-                new XAttribute("TunringNotches", rd.TunringNotches));
+                new XAttribute("TurningNotches", rd.TunringNotches));
         }
     }
 }
