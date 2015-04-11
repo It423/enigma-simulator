@@ -290,6 +290,7 @@ namespace Enigma
             sfd.InitialDirectory = path;
             sfd.Filter = "XML|*.xml";
             sfd.Title = "Save Component";
+            sfd.FileName = ComponentName.Text;
 
             // Open the save dialog
             sfd.ShowDialog(this);
