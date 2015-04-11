@@ -24,7 +24,7 @@ namespace EnigmaUtilities.Data.XML
             }
 
             // Return the validity of wiring
-            return ValidWiring(x, true);
+            return ValidName(x) && ValidWiring(x, true);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace EnigmaUtilities.Data.XML
             }
 
             // Return validity of turning notches and wiring
-            return ValidWiring(x) && ValidTurningNotches(x);
+            return ValidName(x) && ValidWiring(x) && ValidTurningNotches(x);
         }
 
         /// <summary>
@@ -63,6 +63,16 @@ namespace EnigmaUtilities.Data.XML
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Checks the validity of a name contained in an xml element.
+        /// </summary>
+        /// <param name="x"> The xml element. </param>
+        /// <returns> Whether the name was valid. </returns>
+        private static bool ValidName(XElement x)
+        {
+            return x.Attribute("Name").Value != string.Empty ? true : false;
         }
 
         /// <summary>
