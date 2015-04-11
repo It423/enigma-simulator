@@ -25,7 +25,7 @@ namespace EnigmaUtilities.Data.XML
 
             // Convert the x element into reflector data
             string name = x.Attribute("Name").Value;
-            string wiring = x.Attribute("Wiring").Value;
+            string wiring = x.Attribute("Wiring").Value.ToLower();
             return new ReflectorData(name, wiring);
         }
 
@@ -45,8 +45,8 @@ namespace EnigmaUtilities.Data.XML
 
             // Convert the x element into rotor data
             string name = x.Attribute("Name").Value;
-            string wiring = x.Attribute("Wiring").Value;
-            string turningNotches = x.Attribute("TurningNotches").Value;
+            string wiring = x.Attribute("Wiring").Value.ToLower();
+            string turningNotches = x.Attribute("TurningNotches").Value.ToLower();
             return new RotorData(name, wiring, turningNotches);
         }
     }
