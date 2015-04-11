@@ -118,6 +118,40 @@ namespace Enigma
         }
 
         /// <summary>
+        /// Gets the wiring inputted by the user.
+        /// </summary>
+        /// <returns> The wiring inputted by the user. </returns>
+        private string GetWiring()
+        {
+            string wiring = string.Empty;
+            for (int i = 0; i < 26; i++)
+            {
+                wiring += ((TextBox)this.FindName(i.ToChar(false).ToString())).Text.ToLower();
+            }
+
+            return wiring;
+        }
+
+        /// <summary>
+        /// Gets the xml data for component data created by inputted data.
+        /// </summary>
+        /// <param name="wiring"> The wiring for the component. </param>
+        /// <returns> The xml data for the component. </returns>
+        private XElement GetComponentData(string wiring)
+        {
+            if (!(bool)ReflectorCheckBox.IsChecked)
+            {
+                RotorData data = new RotorData(ComponentName.Text, wiring, TurningNotches.Text.ToLower());
+                return data.ToXElement();
+            }
+            else
+            {
+                ReflectorData data = new ReflectorData(ComponentName.Text, wiring);
+                return data.ToXElement();
+            }
+        }
+
+        /// <summary>
         /// Handles the reflector check box being changed.
         /// </summary>
         /// <param name="sender"> The origin of the event. </param>
@@ -230,32 +264,30 @@ namespace Enigma
             }
 
             // Get the wiring
-            string wiring = string.Empty;
-            for (int i = 0; i < 26; i++)
+            string wiring = this.GetWiring();
+               
+            // Throw error if its not filled in
+            if (wiring == string.Empty)
             {
-                wiring += ((TextBox)this.FindName(i.ToChar(false).ToString())).Text.ToLower();
-
-                // Throw error if its not filled in
                 MessageBoxResult msg = MessageBox.Show(this, "The wiring is not complete!", "Error");
                 return;
             }
-
+                    
             // Create the component data
-            XElement xmlData;
-            if (!(bool)ReflectorCheckBox.IsChecked)
+            XElement xmlData = this.GetComponentData(wiring);
+
+            // Create a default directory to store component if it does not exist
+            string path = Directory.GetCurrentDirectory() + "\\Components";
+            if (!Directory.Exists(path))
             {
-                RotorData data = new RotorData(ComponentName.Text, wiring, TurningNotches.Text.ToLower());
-                xmlData = data.ToXElement();
-            }
-            else
-            {
-                ReflectorData data = new ReflectorData(ComponentName.Text, wiring);
-                xmlData = data.ToXElement();
+                Directory.CreateDirectory(path);
             }
 
             // Create the save dialog
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.OverwritePrompt = true;
+            sfd.RestoreDirectory = true;
+            sfd.InitialDirectory = path;
             sfd.Filter = "XML|*.xml";
             sfd.Title = "Save Component";
 
