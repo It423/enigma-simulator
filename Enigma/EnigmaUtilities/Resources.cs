@@ -36,6 +36,7 @@ namespace EnigmaUtilities
         /// Gets the character value of an integer.
         /// </summary>
         /// <param name="i"> The integer to convert to a character. </param>
+        /// <param name="lowerCase"> Whether the character needs to be lower case. </param>
         /// <returns> The character value of the integer. </returns>
         public static char ToChar(this int i, bool lowerCase = true)
         {
