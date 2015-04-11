@@ -71,7 +71,7 @@ namespace EnigmaUtilities.Data.XML
         /// <param name="x"> The xml element. </param>
         /// <param name="reflector"> Whether the wiring is for reflectors. </param>
         /// <returns> Whether the wiring is valid. </returns>
-        public static bool ValidWiring(XElement x, bool reflector = false)
+        private static bool ValidWiring(XElement x, bool reflector = false)
         {
             // Get wiring
             string wiring = x.Attribute("Wiring").Value.ToLower();
@@ -108,7 +108,7 @@ namespace EnigmaUtilities.Data.XML
         /// </summary>
         /// <param name="x"> The xml element. </param>
         /// <returns> Whether the wiring was valid. </returns>
-        public static bool ValidReflectorWiring(XElement x)
+        private static bool ValidReflectorWiring(XElement x)
         {
             // Get wiring
             string wiring = x.Attribute("Wiring").Value.ToLower();
@@ -142,7 +142,7 @@ namespace EnigmaUtilities.Data.XML
         /// </summary>
         /// <param name="x"> The xml element. </param>
         /// <returns> Whether the turning notches is valid. </returns>
-        public static bool ValidTurningNotches(XElement x)
+        private static bool ValidTurningNotches(XElement x)
         {
             // Get the turning notches
             string turningNotches = x.Attribute("TunringNotches").Value.ToLower();
