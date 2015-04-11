@@ -1,6 +1,5 @@
 ﻿// CreateComponent.xaml.cs
 // <copyright file="CreateComponent.xaml.cs"> This code is protected under the MIT License. </copyright>using System;
-using Microsoft.Win32;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -9,6 +8,7 @@ using System.Xml.Linq;
 using EnigmaUtilities;
 using EnigmaUtilities.Data;
 using EnigmaUtilities.Data.XML;
+using Microsoft.Win32;
 
 namespace Enigma
 {
@@ -23,13 +23,13 @@ namespace Enigma
         public CreateComponent()
         {
             this.InitializeComponent();
-            this.CorrospondingWiring = new int[26] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+            this.CorrespondingWiring = new int[26] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
         }
 
         /// <summary>
-        /// Gets or sets the array of wiring that corrosponds with other wiring while in reflector mode.
+        /// Gets or sets the array of wiring that corresponds with other wiring while in reflector mode.
         /// </summary>
-        private int[] CorrospondingWiring { get; set; }
+        private int[] CorrespondingWiring { get; set; }
 
         /// <summary>
         /// Prevents duplicate wiring.
@@ -72,11 +72,11 @@ namespace Enigma
             if (text == string.Empty)
             {
                 // Clear other half of connection if its being removed
-                otherHalfName = this.CorrospondingWiring[textBoxIndex].ToChar(false).ToString();
+                otherHalfName = this.CorrespondingWiring[textBoxIndex].ToChar(false).ToString();
 
                 // Clear connections
-                this.CorrospondingWiring[textBoxIndex] = -1;
-                this.CorrospondingWiring[otherHalfName[0].ToInt()] = -1;
+                this.CorrespondingWiring[textBoxIndex] = -1;
+                this.CorrespondingWiring[otherHalfName[0].ToInt()] = -1;
             }
             else
             {
@@ -87,17 +87,17 @@ namespace Enigma
                 // Delete other connections to this connection
                 for (int i = 0; i < 26; i++)
                 {
-                    if (this.CorrospondingWiring[i] == textBoxIndex)
+                    if (this.CorrespondingWiring[i] == textBoxIndex)
                     {
                         // Remove the wiring
-                        this.CorrospondingWiring[i] = -1;
+                        this.CorrespondingWiring[i] = -1;
                         this.ChangeWiringText(i.ToChar(false).ToString(), string.Empty);
                     }
                 }
 
                 // Create connections
-                this.CorrospondingWiring[textBoxIndex] = text[0].ToInt();
-                this.CorrospondingWiring[text[0].ToInt()] = textBoxIndex;
+                this.CorrespondingWiring[textBoxIndex] = text[0].ToInt();
+                this.CorrespondingWiring[text[0].ToInt()] = textBoxIndex;
             }
 
             // Change text
@@ -169,7 +169,7 @@ namespace Enigma
             }
 
             // Reset settings
-            this.CorrospondingWiring = new int[26] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+            this.CorrespondingWiring = new int[26] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 };
             this.TurningNotches.Text = string.Empty;
             for (int i = 0; i < 26; i++)
             {
@@ -252,8 +252,8 @@ namespace Enigma
         /// <summary>
         /// Handles the click of the save button.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender"> The origin of the event. </param>
+        /// <param name="e"> The event arguments. </param>
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             // Check the name is filled in
