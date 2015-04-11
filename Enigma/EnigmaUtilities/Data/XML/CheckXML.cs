@@ -1,5 +1,5 @@
 ﻿// CheckXML.cs
-// <copyright file="CheckXML.cs"> This code is protected under the MIT License. </copyright>
+// <copyright file="CheckXML.cs"> This code is public under the MIT License. </copyright>
 using System.Collections.Generic;
 using System.Xml.Linq;
 
@@ -50,7 +50,7 @@ namespace EnigmaUtilities.Data.XML
         /// <param name="x"> The xml to check. </param>
         /// <param name="attributeNames"> The list of attribute names. </param>
         /// <returns> Whether the xml contains all of the attributes. </returns>
-        protected static bool ContainsAttributes(XElement x, string[] attributeNames)
+        public static bool ContainsAttributes(XElement x, string[] attributeNames)
         {
             // Check over all the attributes
             foreach (string attribute in attributeNames)
@@ -71,7 +71,7 @@ namespace EnigmaUtilities.Data.XML
         /// <param name="x"> The xml element. </param>
         /// <param name="reflector"> Whether the wiring is for reflectors. </param>
         /// <returns> Whether the wiring is valid. </returns>
-        protected static bool ValidWiring(XElement x, bool reflector = false)
+        public static bool ValidWiring(XElement x, bool reflector = false)
         {
             // Get wiring
             string wiring = x.Attribute("Wiring").Value.ToLower();
@@ -108,7 +108,7 @@ namespace EnigmaUtilities.Data.XML
         /// </summary>
         /// <param name="x"> The xml element. </param>
         /// <returns> Whether the wiring was valid. </returns>
-        protected static bool ValidReflectorWiring(XElement x)
+        public static bool ValidReflectorWiring(XElement x)
         {
             // Get wiring
             string wiring = x.Attribute("Wiring").Value.ToLower();
@@ -142,7 +142,7 @@ namespace EnigmaUtilities.Data.XML
         /// </summary>
         /// <param name="x"> The xml element. </param>
         /// <returns> Whether the turning notches is valid. </returns>
-        protected static bool ValidTurningNotches(XElement x)
+        public static bool ValidTurningNotches(XElement x)
         {
             // Get the turning notches
             string turningNotches = x.Attribute("TunringNotches").Value.ToLower();
