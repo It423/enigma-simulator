@@ -52,7 +52,7 @@ namespace Enigma
             for (int i = 0; i < this.EnigmaMachine.Rotors.Length; i++)
             {
                 // Get the corrosponding label to the rotor
-                Label rotorDisplay = (Label)this.FindName(string.Format("RotorDsp{0}", i.ToString()));
+                Label rotorDisplay = (Label)this.FindName(string.Format("RotorDsp{0}", i));
 
                 // Change the content to suit the rotor
                 rotorDisplay.Content = this.EnigmaMachine.Rotors[i].RotorSetting.ToChar().ToString().ToUpper();
